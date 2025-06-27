@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bővíthető Sportfogadási Prompt Könyvtár</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; min-height: 100vh; transition: all 0.5s ease; }
+        
+        /* Sötét téma */
+        body { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); }
+        
+        /* Világos téma */
+        body.light-theme { 
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #bae6fd 50%, #7dd3fc 75%, #38bdf8 100%);
+        }
+        body.light-theme .sport-card { 
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            color: #0f172a;
+        }
+        body.light-theme .sport-card:hover { 
+            box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.4), 0 10px 10px -5px rgba(14, 165, 233, 0.2);
+            border-color: rgba(14, 165, 233, 0.4);
+        }
+        body.light-theme .prompt-container {
+            background: rgba(255, 255, 255, 0.95);
+            color: #0f172a;
+        }
+        body.light-theme .search-box {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+        body.light-theme .modal-content {
+            background: #ffffff;
+            color: #0f172a;
+        }
+        body.light-theme .modal-input {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #0f172a;
+        }
+        body.light-theme .text-slate-300 { color: #64748b; }
+        body.light-theme .text-slate-400 { color: #475569; }
+        body.light-theme .text-slate-200 { color: #1e293b; }
+        body.light-theme .bg-slate-700 { background-color: #e2e8f0; }
+        body.light-theme .bg-slate-600 { background-color: #cbd5e1; }
+        body.light-theme .hover\:bg-slate-600:hover { background-color: #cbd5e1; }
+        body.light-theme .hover\:bg-slate-500:hover { background-color: #94a3b8; }
+        
+        /* Animált háttér a sötét témához */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.5), transparent);
+            border-radius: 50%;
+            animation: floatUp 20s infinite linear;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        /* Eredeti stílusok */
+        .sport-card { background: linear-gradient(145deg, #1e293b, #334155); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(10px); border: 1px solid rgba(148, 163, 184, 0.1); -webkit-appearance: none; -moz-appearance: none; appearance: none; text-align: center; padding: 1rem; position: relative; }
+        .sport-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.3), 0 10px 10px -5px rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3); }
+        .sport-card.selected { transform: translateY(-8px) scale(1.05); box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.5); border-color: #3b82f6; background: linear-gradient(145deg, #1e40af, #3b82f6); }
+        .prompt-container { background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(148, 163, 184, 0.2); position: relative; }
+        .category-badge, .btn-add-new { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .search-box { background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(148, 163, 184, 0.2); }
+        .search-box:focus-within { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        .header-glow { background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4); background-size: 200% 200%; animation: gradient 3s ease infinite; -webkit-background-clip: text; background-clip: text; color: transparent; }
+        @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .floating-elements { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; overflow: hidden; }
+        .floating-circle { position: absolute; border-radius: 50%; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); animation: float 12s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px) translateX(0px) rotate(0deg); } 25% { transform: translateY(-20px) translateX(15px) rotate(90deg); } 50% { transform: translateY(10px) translateX(-10px) rotate(180deg); } 75% { transform: translateY(-15px) translateX(20px) rotate(270deg); } 100% { transform: translateY(0px) translateX(0px) rotate(360deg); } }
+        .prompt-transition { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+        .prompt-hidden { opacity: 0; transform: translateY(20px); pointer-events: none; }
+        .prompt-visible { opacity: 1; transform: translateY(0); }
+        .favorite-star { position: absolute; top: 8px; right: 8px; font-size: 1.5rem; cursor: pointer; transition: transform 0.2s, color 0.2s, filter 0.2s, opacity 0.2s; filter: grayscale(100%); opacity: 0.6; }
+        .favorite-star:hover { transform: scale(1.2); }
+        .favorite-star.is-favorite { filter: grayscale(0%); opacity: 1; color: #facc15; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 50; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .modal-overlay.visible { opacity: 1; pointer-events: auto; }
+        .modal-content { background: #1e293b; border-radius: 1.5rem; padding: 2rem; width: 90%; max-width: 600px; transform: scale(0.95); transition: transform 0.3s ease; }
+        .modal-overlay.visible .modal-content { transform: scale(1); }
+        .modal-input { background-color: #0f172a; border: 1px solid #475569; color: white; }
+        
+        /* Eszköz menü az alján */
+        .tools-section {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            margin-top: 4rem;
+        }
+        body.light-theme .tools-section {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+        
+        @media (max-width: 640px) {
+          #sports-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            grid-auto-rows: minmax(120px, 1fr) !important;
+            gap: 10px !important;
+          }
+          .sport-card {
+            min-width: 0;
+            min-height: 100px;
+            font-size: 1rem;
+            padding: 0.5rem !important;
+          }
+          #add-new-prompt-btn.fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 50;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            padding: 1.2rem 1.5rem;
+            font-size: 1.2rem;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            transition: transform 0.2s;
+          }
+          #add-new-prompt-btn.fab:active {
+            transform: scale(0.97);
+          }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Animált háttér a sötét témához -->
+    <div class="animated-bg" id="animated-bg"></div>
+    
+    <!-- Lebegő Háttér Elemek -->
+    <div class="floating-elements">
+        <div class="floating-circle w-64 h-64 top-10 left-10 opacity-30" style="animation-delay: -2s; animation-duration: 15s;"></div>
+        <div class="floating-circle w-32 h-32 top-1/3 right-20 opacity-20" style="animation-delay: -4s; animation-duration: 12s;"></div>
+        <div class="floating-circle w-48 h-48 bottom-20 left-1/4 opacity-25" style="animation-delay: -1s; animation-duration: 18s;"></div>
+    </div>
+
+    <div id="page-top" class="container mx-auto px-4 py-6 lg:py-12 max-w-7xl relative z-10">
+        <!-- Fejléc -->
+        <header class="text-center mb-8 lg:mb-16 flex flex-col items-center relative">
+            <div class="absolute right-0 top-0 flex gap-2 z-20">
+                <button id="theme-toggle" class="bg-slate-700 hover:bg-slate-600 text-white rounded-full p-3 transition-all duration-300 transform hover:scale-110" title="Téma váltás">
+                    <span id="theme-icon" class="text-xl">🌙</span>
+                </button>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight header-glow mb-4">AI Prompt Könyvtár</h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">Professzionális, szerkeszthető sportfogadási promptok gyűjteménye.</p>
+        </header>
+
+        <!-- Keresés és Szűrés -->
+        <div class="mb-8 lg:mb-12">
+            <div class="search-box rounded-2xl p-4 mb-6 transition-all duration-300">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <label for="search-input" class="sr-only">Keress sportágra</label>
+                    <input type="text" id="search-input" placeholder="Keress sportágra..." class="bg-transparent border-none outline-none text-white flex-1 text-lg placeholder-slate-400">
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-3 justify-center items-center">
+                <button class="category-filter category-badge px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300" data-category="all">Összes</button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-semibold bg-slate-700 hover:bg-slate-600 transition-all duration-300" data-category="favorites">⭐ Kedvencek</button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-semibold bg-slate-700 hover:bg-slate-600 transition-all duration-300" data-category="traditional">Hagyományos</button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-semibold bg-slate-700 hover:bg-slate-600 transition-all duration-300" data-category="esports">E-Sports</button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-semibold bg-slate-700 hover:bg-slate-600 transition-all duration-300" data-category="motor">Motorsport</button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-semibold bg-slate-700 hover:bg-slate-600 transition-all duration-300" data-category="virtual">Virtuális</button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-semibold bg-slate-700 hover:bg-slate-600 transition-all duration-300" data-category="water">Vízi</button>
+                <button class="category-filter px-4 py-2 rounded-full text-sm font-semibold bg-slate-700 hover:bg-slate-600 transition-all duration-300" data-category="precision">Precíziós</button>
+                <button id="add-new-prompt-btn" class="btn-add-new px-4 py-2 rounded-full text-sm font-semibold transition-transform hover:scale-105">Új Prompt Hozzáadása</button>
+            </div>
+        </div>
+
+        <!-- Sportágak Rácsa -->
+        <div id="sports-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 lg:gap-6 mb-8 lg:mb-16"></div>
+        <div id="no-results" class="hidden text-center text-slate-400 py-10"><p class="text-xl">Nincs a szűrésnek megfelelő sportág.</p></div>
+
+        <!-- Prompt Megjelenítő -->
+        <div id="prompt-container" class="prompt-container rounded-3xl p-6 lg:p-10 shadow-2xl prompt-transition prompt-hidden">
+            <button id="close-prompt-button" aria-label="Prompt bezárása" class="absolute top-4 right-5 text-slate-400 hover:text-white transition-colors duration-300 text-3xl leading-none">&times;</button>
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                <div>
+                    <h2 id="prompt-title" class="text-2xl lg:text-4xl font-bold text-blue-400 mb-2"></h2>
+                    <p id="prompt-category" class="text-slate-400 text-sm"></p>
+                </div>
+                <div class="flex gap-3 mt-4 lg:mt-0">
+                    <button id="edit-button" class="bg-slate-600 hover:bg-slate-500 text-white font-semibold py-3 px-6 rounded-xl flex items-center gap-2 transition-all duration-300 transform hover:scale-105">Szerkesztés</button>
+                    <button id="copy-button" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl flex items-center gap-2 transition-all duration-300 transform hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h1V1.5z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>
+                        <span id="copy-text">Másolás</span>
+                    </button>
+                </div>
+            </div>
+            <div class="relative"><textarea id="prompt-text" readonly class="w-full h-80 lg:h-96 bg-slate-900/50 border border-slate-600 rounded-2xl p-6 text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none text-sm lg:text-base leading-relaxed"></textarea></div>
+            <div id="copy-feedback" class="text-center text-green-400 mt-4 h-6 transition-all duration-300 opacity-0 font-semibold">✓ Prompt sikeresen a vágólapra másolva!</div>
+        </div>
+    </div>
+    
+    <!-- Hozzáadás/Szerkesztés Modál -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-title" class="text-2xl font-bold mb-6 text-white">Prompt Szerkesztése</h3>
+            <form id="edit-form" class="space-y-4">
+                <input type="hidden" id="edit-key">
+                <div>
+                    <label for="edit-name" class="block text-sm font-medium text-slate-300 mb-1">Sportág Neve</label>
+                    <input type="text" id="edit-name" required class="w-full p-3 rounded-lg modal-input">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="edit-icon" class="block text-sm font-medium text-slate-300 mb-1">Ikon (emoji)</label>
+                        <input type="text" id="edit-icon" required class="w-full p-3 rounded-lg modal-input">
+                    </div>
+                    <div>
+                        <label for="edit-category" class="block text-sm font-medium text-slate-300 mb-1">Kategória</label>
+                        <select id="edit-category" required class="w-full p-3 rounded-lg modal-input">
+                            <option value="traditional">Hagyományos</option>
+                            <option value="esports">E-Sports</option>
+                            <option value="motor">Motorsport</option>
+                            <option value="virtual">Virtuális</option>
+                            <option value="water">Vízi</option>
+                            <option value="precision">Precíziós</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="edit-prompt-title" class="block text-sm font-medium text-slate-300 mb-1">Prompt Címe</label>
+                    <input type="text" id="edit-prompt-title" required class="w-full p-3 rounded-lg modal-input">
+                </div>
+                <div>
+                    <label for="edit-prompt" class="block text-sm font-medium text-slate-300 mb-1">Prompt Szövege</label>
+                    <textarea id="edit-prompt" required rows="6" class="w-full p-3 rounded-lg modal-input resize-y"></textarea>
+                </div>
+                <div class="flex justify-end gap-4 pt-4">
+                    <button type="button" id="cancel-edit-btn" class="px-6 py-2 rounded-lg bg-slate-600 hover:bg-slate-500 transition">Mégse</button>
+                    <button type="submit" class="px-6 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 transition">Mentés</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Eszköz szekció az oldal alján -->
+    <div class="tools-section rounded-3xl p-8 mt-16">
+        <h2 class="text-2xl font-bold text-center mb-8">Eszközök és Beállítások</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center">
+                <button id="export-btn" class="bg-green-600 hover:bg-green-700 text-white rounded-full p-4 transition-all duration-300 transform hover:scale-110 mb-3" title="Exportálás JSON-ba">
+                    <span class="text-2xl">📥</span>
+                </button>
+                <h3 class="font-semibold mb-2">Exportálás</h3>
+                <p class="text-sm text-slate-400">Mentsd el az összes promptodat JSON fájlba biztonsági mentésként vagy megosztáshoz.</p>
+            </div>
+            
+            <div class="text-center">
+                <label for="import-input" class="inline-block bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 transition-all duration-300 transform hover:scale-110 cursor-pointer mb-3" title="Importálás JSON-ból">
+                    <span class="text-2xl">📤</span>
+                    <input id="import-input" type="file" accept="application/json" class="hidden" />
+                </label>
+                <h3 class="font-semibold mb-2">Importálás</h3>
+                <p class="text-sm text-slate-400">Tölts be korábban mentett promptokat JSON fájlból.</p>
+            </div>
+            
+            <div class="text-center">
+                <button id="reset-btn" class="bg-red-600 hover:bg-red-700 text-white rounded-full p-4 transition-all duration-300 transform hover:scale-110 mb-3" title="Visszaállítás alapértelmezettre">
+                    <span class="text-2xl">🔄</span>
+                </button>
+                <h3 class="font-semibold mb-2">Visszaállítás</h3>
+                <p class="text-sm text-slate-400">Állítsd vissza az eredeti promptokat. Figyelem: minden egyéni prompt törlődik!</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- ADATBÁZIS ÉS KONFIGURÁCIÓ ---
+
+        const defaultSportsData = { // Alapértelmezett, nem módosítható adatok
+            football: {
+                name: "Foci",
+                icon: '⚽',
+                category: 'traditional',
+                title: "Professzionális Foci Elemzési Prompt",
+                prompt: "Keresd meg a mai focimérkőzéseket, és nézd át a sportfogadó irodákat is az oddsok alapján. Nézd meg más tippadók véleményét is — csak olyan tippeket adj, amelyek ma lesznek, és az odds meghaladja az 1.90-et. A válaszodat gondold át alaposan, és indokold meg részletesen. Adj single és kombi tippeket is. Gondolkodj úgy, mint egy sportfogadó szakember, aki 20 éve ebből él, és focira specializálódott. Vizsgáld meg a csapatok formájától kezdve az időjáráson át a hiányzó játékosokig minden tényezőt. Gondold végig, melyik lehet a legjobb értékfogadás, amelynek legalább 50% feletti a valószínűsége. Ne feledd: te egy profi szakember vagy, akinek mindenre kiterjed a figyelme, még azokra is, amiket a bukmékerek esetleg nem vesznek észre. A válaszaidat jól indokold meg, és a végén írd le rendes tipp formába is. Nagyon fontos, hogy több csoportot és kommentet is vizsgálj át, különösen azokat, ahol a fogadási értékről beszélnek, és ahol több ember is értékfogadást lát — például hiányzó kulcsjátékos vagy más olyan tényező, amely elkerüli a bukik figyelmét. A lényeg: a tippeket tipp formába írd le a végén."
+            },
+            basketball: {
+                name: "Kosárlabda",
+                icon: '🏀',
+                category: 'traditional',
+                title: "Stratégiai Kosárlabda Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy profi kosárlabda elemző, aki 15+ éve követi a nemzetközi és hazai bajnokságokat. Keress mai kosárlabda mérkőzéseket minimum 1.90-es oddsokkal minden elérhető ligából (NBA, EuroLeague, Nemzeti bajnokságok). Vizsgáld meg részletesen a csapatok offensive/defensive ratingjeit, pace factort, rebounding percentageket, és az utóbbi 10 meccs formáját. Kiemelt figyelmet fordíts a key players sérüléseire, back-to-back meccsek hatására, és a home/away form különbségeire. Kutass kosárlabda fórumokon, Reddit NBA/EuroLeague subredditekben, Twitter kosárlabda szakértők posztjaiban, és nézd át az insider információkat - például load management döntések, rookie vs veteran matchupok, vagy utolsó pillanatban kidőlt játékosok. Keress érték fogadásokat, ahol a valós valószínűség legalább 55%-ra becsülhető. Koncentrálj player props-ra (points, rebounds, assists), team totals-ra, quarter/half betting-re, és spread piacokra. Különösen figyelj a revenge game faktorokra, playoff positioning motivációra, és clutch time statisztikákra. A végén adj konkrét single és kombi tippeket tiszta indoklással."
+            },
+            tennis: {
+                name: "Tenisz",
+                icon: '🎾',
+                category: 'traditional',
+                title: "Professzionális Tenisz Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy 20 éves tapasztalattal rendelkező tenisz szakértő és értékfogadás specialista. Keress mai tenisz mérkőzéseket minimum 1.90-es oddsokkal minden major turnirról (ATP, WTA, Challenger, ITF). Elemezd részletesen a játékosok felszín preferenciáját (salak/fű/kemény), head-to-head mérlegét, recent form-ot, és az utóbbi 5 meccs serve/return statisztikáit. Kutass tenisz fórumokon (TennisWorld, MTF), social media posztokban, TennisTV kommentekben olyan rejtett információkért, mint kisebb sérülések, coaching changes, personal issues, vagy travel fatigue. Különös figyelmet fordíts a weather conditions hatására, jet lag-re, tournament progression-re, és playing style matchupokra (baseliner vs serve&volley). Keress érték fogadásokat, ahol a bookmaker odds nem tükrözi pontosan a valós esélyeket - minimum 52% becsült valószínűséggel. Koncentrálj match winner, set betting, total games, first set winner, és player performance piacokra. Elemezd a break point conversion rates-et, tiebreak records-ot, és pressure situation performance-t. A végén adj strukturált single és accumulator tippeket részletes reasoning-gel."
+            },
+            american_football: {
+                name: "Amerikai Futball",
+                icon: '🏈',
+                category: 'traditional',
+                title: "NFL Stratégiai Elemzési Prompt",
+                prompt: "Légy egy NFL insider analitikus 20+ éves tapasztalattal, aki minden statisztikai és motivációs faktort ismer. Vizsgáld a hétvégi NFL slate-et minimum 1.90-es oddsokkal. Mélyedj el a csapatok advanced metrics-eiben: DVOA (offense/defense/special teams), EPA per play, red zone efficiency, third down conversion rates, turnover differential, és time of possession trends. Kutass NFL Twitter/X beat reportereknél, team subredditekben, injury reports-ban, weather forecast-okban. Keress insider információkat: motivational edges (revenge games, contract years, coaching hot seats), line movement analysis, sharp vs public money, és vegas insider tips. Figyelj különösen a playoff implications-re, divisional rivalry dynamics-ra, prime time performance history-ra, és rest advantages-re (bye weeks, short weeks). Keress érték fogadásokat 55%+ becsült valószínűséggel spread, totals, player props (passing/rushing/receiving yards, TDs), team props, és live betting scenarios-ban. Elemezd a coaching tendencies-t, game script probabilities-t, és in-game adjustment capabilities-t. A végén adj stratégiai tippeket single és parlay formában konkrét reasoning-gel."
+            },
+            baseball: {
+                name: "Baseball",
+                icon: '⚾',
+                category: 'traditional',
+                title: "MLB Sabermetrics Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy sabermetrics guru és MLB értékfogadás specialista 25+ éves tapasztalattal. Keress mai MLB games-eket minimum 1.90-es oddsokkal. Merülj el a starting pitchers advanced stats-aiban: ERA vs FIP vs xFIP, WHIP, K/9, BB/9, HR/9, és ballpark-adjusted numbers. Elemezd a csapatok offensive metrics-eit: wOBA, OPS+, ISO, BABIP, és recent hot/cold streaks. Vizsgáld a bullpen depth-et, usage patterns-t, és closer availability-t. Kutass baseball fórumokon (BaseballThinkFactory, Fangraphs comments), beat writers Twitter feeds-ben, fantasy baseball communities-ben olyan információkért, mint minor injuries, family issues, contract negotiations, vagy clubhouse chemistry. Figyelj különösen a weather impact-ra (wind direction/speed, temperature, humidity), ballpark factors-ra, umpire strike zone tendencies-re, és platoon advantages-ra. Keress érték fogadásokat minimum 53% becsült valószínűséggel moneyline, run line, totals, first 5 innings, player props (hits, HRs, RBIs, strikeouts) piacokban. Elemezd a recent offensive trends-eket, pitcher fatigue-et, és late-inning management. A végén adj data-driven tippeket single és parlay formában supporting sabermetric analysis-szel."
+            },
+            ice_hockey: {
+                name: "Jégkorong",
+                icon: '🏒',
+                category: 'traditional',
+                title: "NHL Mélységi Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy NHL analytics expert és professional bettor 18+ éves tapasztalattal. Keress mai jégkorong meccseket minimum 1.90-es oddsokkal. Elemezd a csapatok advanced hockey metrics-eit: Corsi For %, Fenwick %, PDO, expected goals for/against, high-danger scoring chances, és faceoff win percentages. Vizsgáld a goaltender performance-ot: save percentage, goals against average, quality start percentage, és back-to-back fatigue. Kutass hockey insider Twitter accounts-ban, team beat reporters cikkeiben, r/hockey discussions-ben, és HockeyDB-n olyan információkért, mint goalie injuries, line combination changes, healthy scratches, vagy locker room issues. Figyelj a travel schedule impact-ra, back-to-back games-re, power play/penalty kill efficiency-re, és late-season motivation factors-ra (playoff race, draft positioning). Keress érték fogadásokat minimum 54% valószínűséggel puck line, totals, period betting, player props (goals, assists, shots, saves), és team props piacokban. Elemezd a coaching systems-t (offensive/defensive schemes), special teams success, és clutch performance metrics. A végén adj strategic hockey tippeket single és accumulator formában advanced analytics supporting-gal."
+            },
+            golf: {
+                name: "Golf",
+                icon: '⛳',
+                category: 'traditional',
+                title: "PGA Tour Szakértői Elemzési Prompt",
+                prompt: "Légy egy PGA Tour insider és golf betting expert 22+ éves tapasztalattal. Vizsgáld a hétvégi tournament mezőnyét minimum 1.90-es oddsokkal. Elemezd a players strokes gained categories-eit: tee-to-green, putting, approach shots, around the green, és driving accuracy/distance. Kutass golf social media-ban (Golf Channel, PGA Tour Twitter), player interviews-ban, caddie insights-ban, weather forecasts-ban olyan információkért, mint equipment changes, swing modifications, personal issues, vagy course familiarity. Figyelj különösen a course setup-ra (rough height, green firmness/speed, pin positions), historical scoring conditions-re, recent form trends-re, és pressure performance under contention. Keress érték fogadásokat minimum 52% valószínűséggel outright winner, top-5/10/20 finishes, head-to-head matchups, first round leader, cut/no cut, és nationality group betting piacokban. Elemezd a playing style vs course design compatibility-t, putting performance on similar green types-ot, és mental game strength. A végén adj comprehensive tournament betting strategy-t single és multiple bets formában supporting course analysis és player form metrics-szel."
+            },
+            boxing: {
+                name: "Boks",
+                icon: '🥊',
+                category: 'traditional',
+                title: "Boksz Szakmai Combat Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy combat sports analyst és boxing betting specialist 20+ éves tapasztalattal. Keress közelgő boksz mérkőzéseket minimum 1.90-es oddsokkal minden súlycsoportból. Elemezd a boxerek fighting style-ját, technical skills-eit (jab accuracy, power punching, defense, footwork), reach/height advantages-t, és knockout power statistics-ot. Kutass boxing fórumokon (BoxingScene, Boxing News), ESPN boxing sections-ben, fighter social media accounts-ban olyan információkért, mint training camp quality, sparring partner selection, weight cut difficulties, personal motivations, vagy family issues. Figyelj különösen az age factor-ra, ring rust hatására (layoff time), venue/crowd advantages-ra, referee/judging tendencies-re, és stylistic matchup implications-re. Keress érték fogadásokat minimum 55% valószínűséggel method of victory (KO/TKO/Decision), round betting, fight duration over/under, és fighter performance props piacokban. Elemezd a punch output/accuracy statistics-ot, chin durability-t, cardio conditioning-et, és mental warfare aspects-ot. A végén adj technical boxing analysis tippeket single és combination bets formában supporting fight breakdown reasoning-gel."
+            },
+            mma: {
+                name: "MMA/UFC",
+                icon: '🥋',
+                category: 'traditional',
+                title: "UFC/MMA Komplex Combat Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy MMA technical analyst és UFC betting insider 15+ éves tapasztalattal. Vizsgáld a közelgő UFC card-ot minimum 1.90-es oddsokkal. Merülj el a fighters grappling credentials-eiben, striking accuracy/defense metrics-eiben, takedown offense/defense percentages-eiben, submission attempt rates-eiben, és cardio/conditioning levels-eiben. Kutass MMA fórumokon (r/MMA, Sherdog, MMA Underground), UFC social media-ban, fighter interviews-ban olyan információkért, mint training camp changes, injury recoveries, weight cut struggles, personal motivation, vagy gym conflicts. Figyelj az octagon experience differential-re, fighting style evolution-re, reach/height matchup advantages-ra, és referee assignment impact-ra. Keress érték fogadásokat minimum 53% valószínűséggel method of victory, round betting, fight duration, performance bonuses, és fighter-specific prop betting piacokban. Elemezd a stylistic matchup implications-t (striker vs grappler vs well-rounded), fight IQ levels-t, cage generalship-et, és mental toughness under pressure. A végén adj technical MMA breakdown tippeket single és parlay formában supporting martial arts analysis és physical attribute comparisons-szel."
+            },
+            volleyball: {
+                name: "Röplabda",
+                icon: '🏐',
+                category: 'traditional',
+                title: "Röplabda Stratégiai Team Elemzési Prompt",
+                prompt: "Légy egy nemzetközi röplabda expert és értékfogadás specialist 16+ éves tapasztalattal. Keress mai mérkőzéseket minimum 1.90-es oddsokkal különböző ligákból (CEV Champions League, nemzeti bajnokságok, nemzetközi tornák). Elemezd a csapatok technical statistics-eit: attack efficiency %, block effectiveness, serve receive quality, setting distribution patterns, és defensive systems effectiveness. Kutass volleyball communities-ben (VolleyTalk forums), team social media updates-ben, coach interviews-ban olyan információkért, mint key player injuries, team chemistry issues, travel fatigue, vagy tactical adjustments. Figyelj a home court advantage impact-ra, playing surface differences-re (floor type, net height consistency), referee assignment tendencies-re, és rotation strategy effectiveness-re. Keress érték fogadásokat minimum 52% valószínűséggel set betting, total points over/under, handicap spreads, first set winners, és individual player performance props piacokban. Elemezd a tactical system matchups-ot (6-2 vs 5-1 offense), substitution patterns-t, timeout usage strategy-t, és pressure performance in crucial sets. A végén adj strategic volleyball tippeket single és combination formában supporting team dynamics analysis és tactical approach evaluation-nel."
+            },
+            handball: {
+                name: "Kézilabda",
+                icon: '🤾',
+                category: 'traditional',
+                title: "Kézilabda Taktikai Mélységi Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy európai kézilabda tactical analyst és betting expert 18+ éves tapasztalattal. Vizsgáld a mai mérkőzéseket minimum 1.90-es oddsokkal (EHF Champions League, EHF Cup, nemzeti ligák). Elemezd a csapatok offensive systems-eit (positional attack vs fast break), defensive formations-eit (6-0, 5+1, 4+2), goalkeeper save percentages-eit különböző szögekből, és penalty conversion rates-eit. Kutass handball fórumokon (Handball-Planet), EHF official communications-ben, team websites-eken olyan információkért, mint suspension lists, international duty fatigue, coaching philosophy changes, vagy arena atmosphere impact. Figyelj különösen a referee assignment-ra (strict vs lenient), player rotation policies-re, európai cup vs domestic league priority-ra, és historical head-to-head tactical battles-re. Keress érték fogadásokat minimum 53% valószínűséggel handicap betting, total goals over/under, half-time/full-time results, individual player scoring props, és team tactical success metrics piacokban. Elemezd a goalkeeper duel impact-ot, fast break conversion efficiency-t, man-up situations exploitation-t, és pressure performance in final minutes. A végén adj strategic handball tippeket single és accumulator formában supporting tactical matchup analysis és team form assessment-tel."
+            },
+            rugby: {
+                name: "Rögbi",
+                icon: '🏉',
+                category: 'traditional',
+                title: "Rugby Union/League Komprehenzív Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy rugby expert analyst és international rugby betting specialist 20+ éves tapasztalattal. Keress közelgő mérkőzéseket minimum 1.90-es oddsokkal (Six Nations, Rugby Championship, Premiership, Super Rugby). Merülj el a csapatok forward pack vs backline balance analysis-eiben, scrum dominance statistics-eiben, lineout success rates-eiben, ruck efficiency metrics-eiben, és territory/possession control patterns-eiben. Kutass rugby fórumokon (The Rugby Forum), official union websites-eken, rugby journalism Twitter feeds-ben olyan információkért, mint international player availability, injury return timelines, weather impact on game plans, vagy coaching tactical innovations. Figyelj különösen a set piece reliability-re, kicking game accuracy-ra (territory vs points), referee interpretation tendencies-re, és home ground advantages specifics-ra. Keress érték fogadásokat minimum 54% valószínűséggel handicap betting, total points over/under, first try scorer, disciplinary points (cards/penalties), és team performance metrics piacokban. Elemezd a forward dominance implications-t, breakdown contest effectiveness-t, territorial advantage strategies-t, és bench impact in final quarter. A végén adj strategic rugby tippeket single és multiple bets formában supporting pack vs backline analysis és set piece battle assessment-tel."
+            },
+            cricket: {
+                name: "Krikett",
+                icon: '🏏',
+                category: 'traditional',
+                title: "Cricket Komplex Format-Specific Elemzési Prompt",
+                prompt: "Légy egy cricket technical analyst és international cricket betting guru 25+ éves tapasztalattal minden format-ban. Vizsgáld a közelgő matches-eket minimum 1.90-es oddsokkal (Test, ODI, T20I, domestic competitions). Elemezd a team batting depth-et, bowling attack variety (pace vs spin balance), fielding standards-ot, és format-specific tactical approaches-ot. Kutass cricket communities-ben (CricketWeb, ESPNCricinfo forums), player social media-ban, cricket journalism-ben olyan információkért, mint pitch preparation details, weather forecast implications, team selection dilemmas, vagy player form cycles. Figyelj különösen a pitch conditions evolution-re (day 1 vs day 4 characteristics), toss decision importance-re, DLS method implications-re, és venue-specific historical patterns-re. Keress érték fogadásokat minimum 52% valószínűséggel match winners, top batsman/bowler markets, innings totals, method of dismissal props, session betting, és individual player performance metrics piacokban. Elemezd a bowling matchup advantages-t, batting order strategy-t, captaincy tactical decisions-t, és pressure performance in crucial phases. A végén adj format-appropriate cricket tippeket single és combination formában supporting pitch analysis és playing conditions assessment-tel."
+            },
+            athletics: {
+                name: "Atletika",
+                icon: '🏃',
+                category: 'traditional',
+                title: "Atletika Performance Science Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy track and field performance analyst és athletics betting specialist 20+ éves tapasztalattal. Keress közelgő events-eket minimum 1.90-es oddsokkal (Diamond League, World Championships qualifiers, major meets). Merülj el az athletes seasonal progression curves-eiben, personal best vs season best analysis-eiben, recent competition results trends-eiben, és training base performance indicators-eiben. Kutass athletics fórumokon (LetsRun, TrackField forums), athlete social media accounts-ban, coaching interview insights-ban olyan információkért, mint altitude training effects, injury recovery status, technical improvements, vagy psychological preparation methods. Figyelj különösen a competition conditions-re (weather, wind, track surface quality), pacing strategy preferences-re, head-to-head racing psychology-ra, és seasonal peaking timing-ra. Keress érték fogadásokat minimum 51% valószínűséggel event winners, performance time/distance targets, head-to-head athlete matchups, nationality group success, és meeting records assault attempts piacokban. Elemezd a tactical race development scenarios-t, finishing kick capabilities-t, competition experience levels-t, és pressure performance under major event conditions. A végén adj performance-focused athletics tippeket single és multiple selection formában supporting training analysis és competitive history evaluation-nel."
+            },
+            swimming: {
+                name: "Úszás",
+                icon: '🏊',
+                category: 'water',
+                title: "Úszás Teljesítmény Science Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy swimming performance analyst és aquatic sports betting expert 18+ éves tapasztalattal. Vizsgáld a közelgő swimming competitions-eket minimum 1.90-es oddsokkal (World Championships, national meets, Diamond League events). Elemezd a swimmers technical stroke efficiency-jét, split times progression analysis-t, recent taper performance indicators-t, és biomechanical improvement trends-et. Kutass swimming communities-ben (SwimSwam forums), athlete training updates-ben, coach methodology interviews-ban olyan információkért, mint training volume periodization, technique modifications, equipment advantages, vagy psychological preparation strategies. Figyelj különösen a pool conditions-re (temperature, lane assignments, current flow), altitude training adaptation effects-re, competition schedule fatigue-re, és stroke specialization vs versatility factors-ra. Keress érték fogadásokat minimum 50% valószínűséggel event winners, time prediction ranges, head-to-head swimmer duels, relay team composition effectiveness, és meet records challenge attempts piacokban. Elemezd a race strategy preferences-t (front-running vs negative split), lane draw psychological advantages-t, technique consistency under pressure-t, és championship experience impact. A végén adj technique-focused swimming tippeket single és combination formában supporting training periodization analysis és biomechanical stroke assessment-tel."
+            },
+            water_polo: {
+                name: "Vízilabda",
+                icon: '🤽',
+                category: 'water',
+                title: "Vízilabda Taktikai Team Dynamics Elemzési Prompt",
+                prompt: "Légy egy vízilabda tactical expert és water polo betting specialist 15+ éves tapasztalattal. Keress mai mérkőzéseket minimum 1.90-es oddsokkal (Champions League, Euro Cup, nemzeti bajnokságok). Merülj el a csapatok offensive systems analysis-eiben (center forward vs perimeter shooting), defensive pressure schemes-eiben, goalkeeper save percentage vs shooting angles statistics-eiben, és man-up/man-down conversion efficiency-ben. Kutass water polo communities-ben (WaterPoloWorld forums), team social media updates-ben, coach tactical interviews-ban olyan információkért, mint key player conditioning status, tactical system adaptations, referee assignment tendencies, vagy pool dimension advantages. Figyelj különösen a physical conditioning levels-re (4th quarter stamina), exclusion foul management-re, counter-attack conversion rates-re, és European vs domestic league tactical differences-re. Keress érték fogadásokat minimum 53% valószínűséggel handicap betting, total goals over/under, quarter-by-quarter scoring patterns, individual player scoring props, és penalty shootout scenarios piacokban. Elemezd a goalkeeper duel significance-t, set piece execution efficiency-t, swimming speed advantages-t, és tactical adaptation capabilities mid-game. A végén adj strategic water polo tippeket single és accumulator formában supporting team tactical analysis és player conditioning assessment-tel."
+            },
+            cycling: {
+                name: "Kerékpározás",
+                icon: '🚴',
+                category: 'traditional',
+                title: "Kerékpározás Multi-Discipline Stratégiai Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy professional cycling analyst és Grand Tour betting expert 22+ éves tapasztalattal. Keress közelgő races-eket minimum 1.90-es oddsokkal (Grand Tours, Monuments, World Tour events). Elemezd a riders climbing power-to-weight ratios-eit, time trial aerodynamic efficiency-jét, sprint positioning skills-eit, és team tactical support quality-jét. Kutass cycling fórumokon (CyclingNews, PelotonCafe), pro team social media-ban, DS tactical interviews-ban olyan információkért, mint equipment advantages, altitude training camps, team leadership dynamics, vagy stage-specific preparation strategies. Figyelj különösen a stage profile analysis-re (gradient percentages, wind exposure, technical descents), weather forecast implications-re, historical performance venue patterns-re, és Grand Tour vs one-day race specialization factors-ra. Keress érték fogadásokat minimum 52% valószínűséggel stage winners, overall classification positions, points/mountain jersey competitions, team classification battles, és breakaway success probability piacokban. Elemezd a team tactical dynamics-ot, peloton politics influence-t, pacing strategy variations-t, és recovery management between stages. A végén adj strategic cycling tippeket single és stage-by-stage accumulator formában supporting terrain analysis és rider specialization assessment-tel."
+            },
+            table_tennis: {
+                name: "Asztalitenisz",
+                icon: '🏓',
+                category: 'precision',
+                title: "Asztalitenisz Technical Precision Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy table tennis technical analyst és international ping pong betting specialist 16+ éves tapasztalattal. Vizsgáld a közelgő tournaments-eket minimum 1.90-es oddsokkal (ITTF World Tour, European Championships, national leagues). Merülj el a players technical style analysis-eiben (offensive topspin vs defensive chopping vs all-round), equipment specifications-eiben (rubber/blade combinations), serve variety effectiveness-eiben, és return game adaptation capabilities-eiben. Kutass table tennis fórumokon (TableTennisDaily, ITTF forums), player equipment choices updates-ben, coaching philosophy interviews-ban olyan információkért, mint technique modifications, mental preparation methods, playing surface adaptation strategies, vagy injury management approaches. Figyelj különösen a rubber technology advantages-ra, playing hall conditions-re (lighting, air circulation), tournament format mental demands-re, és Asian vs European tactical philosophy differences-re. Keress érték fogadásokat minimum 51% valószínűséggel match winners, set betting handicaps, total games over/under, service game dominance, és tournament progression probability piacokban. Elemezd a style matchup implications-t (speed vs spin vs placement), rally length preferences-t, pressure point execution-t, és equipment rule adaptation speeds. A végén adj technical table tennis tippeket single és tournament progression formában supporting equipment analysis és playing style compatibility assessment-tel."
+            },
+            badminton: {
+                name: "Tollaslabda",
+                icon: '🏸',
+                category: 'precision',
+                title: "Tollaslabda Technical Court Dynamics Elemzési Prompt",
+                prompt: "Légy egy badminton performance analyst és BWF tournament betting expert 14+ éves tapasztalattal. Keress közelgő events-eket minimum 1.90-es oddsokkal (BWF World Tour, Thomas/Uber Cup, national championships). Elemezd a players court coverage efficiency-jét, smash power vs placement accuracy balance-ét, net play finesse techniques-eit, és endurance performance curves-eit különböző match lengths-eknél. Kutass badminton communities-ben (BadmintonCentral forums), BWF official communications-ben, Asian badminton media-ban olyan információkért, mint string tension optimization, shuttle speed preferences, coaching tactical innovations, vagy altitude/humidity adaptation strategies. Figyelj különösen a playing style evolution-re (attack vs defense vs deception), doubles partnership chemistry-re, venue-specific court conditions-re, és tournament scheduling fatigue management-re. Keress érték fogadásokat minimum 50% valószínűséggel match winners, game betting spreads, total points over/under, handicap game advantages, és doubles team coordination effectiveness piacokban. Elemezd a tactical game development patterns-t, shot selection decision-making-et, court positioning advantages-t, és mental resilience under extended rallies. A végén adj technical badminton tippeket single és tournament bracket formában supporting court positioning analysis és shot selection evaluation-nel."
+            },
+            darts: {
+                name: "Darts",
+                icon: '🎯',
+                category: 'precision',
+                title: "Darts Precision Mental Game Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy darts psychology expert és PDC/BDO tournament betting specialist 18+ éves tapaszitalattal. Vizsgáld a közelgő tournaments-eket minimum 1.90-es oddsokkal (PDC World Championship, Premier League, European Tour events). Merülj el a players statistical analysis-eiben (180s frequency, checkout percentages, first 9 dart averages), mental game consistency-jében, pressure performance metrics-eiben, és stage experience confidence levels-eiben. Kutass darts communities-ben (DartsNutz forums), player social media insights-ban, Sky Sports darts coverage analysis-eiben olyan információkért, mint practice routine changes, family support situations, crowd favorite advantages, vagy venue acoustics adaptation strategies. Figyelj különösen a format adaptation skills-re (sets vs legs vs first-to formats), walk-on music psychological impact-ra, oche position comfort-ra, és alcohol consumption policy effects-re. Keress érték fogadásokat minimum 52% valószínűséggel match winners, handicap betting, highest checkout achieved, 180s hit count, tournament outright winners, és match duration over/under piacokban. Elemezd a head-to-head psychological advantages-t, comeback ability under pressure-t, finishing consistency trends-t, és crowd interaction management skills. A végén adj strategic darts tippeket single és tournament progression formában supporting mental game analysis és statistical consistency evaluation-nel."
+            },
+            snooker: {
+                name: "Snooker",
+                icon: '🎱',
+                category: 'precision',
+                title: "Snooker Tactical Mental Precision Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy snooker tactical expert és World Championship betting specialist 20+ éves tapasztalattal. Keress közelgő tournaments-eket minimum 1.90-es oddsokkal (World Championship, UK Championship, Masters, ranking events). Elemezd a players break-building consistency-jét (century break frequency, average break values), safety play tactical intelligence-ét, pressure situation clearance abilities-ét, és long-format match stamina management-jét. Kutass snooker fórumokon (TSF, SnookerHQ), BBC/Eurosport pundit analysis-eiben, player interview insights-ban olyan információkért, mint cue tip maintenance preferences, practice table conditions adaptation, coaching relationship changes, vagy personal life stability factors. Figyelj különösen a table conditions response-ra (cloth speed, cushion responsiveness), session-by-session momentum shifts-re, best-of format mental endurance-ra, és Crucible vs other venues psychological adaptation-ra. Keress érték fogadásokat minimum 53% valószínűséggel match winners, handicap frame betting, highest break achieved, century break count, session score predictions, és tournament outright winner piacokban. Elemezd a tactical battle dynamics-ot, comeback ability from behind-ot, pressure pot execution-t, és referee/crowd influence management. A végén adj strategic snooker tippeket single és tournament bracket formában supporting tactical analysis és mental resilience assessment-tel."
+            },
+            horse_racing: {
+                name: "Lóverseny",
+                icon: '🏇',
+                category: 'traditional',
+                title: "Lóverseny Comprehensive Form Elemzési Prompt",
+                prompt: "Légy egy thoroughbred racing expert és professional handicapper 25+ éves tapasztalattal. Keress mai horse racing events-eket minimum 1.90-es oddsokkal (flat racing, jump racing, különböző távolságok). Merülj el a horses form analysis-eiben (recent performance ratings, class levels, distance preferences), jockey statistics-eiben (course/distance strike rates, trainer partnerships), trainer patterns-eiben (seasonal peaks, first-time equipment), és breeding/pedigree implications-eiben specific race conditions-höz. Kutass racing fórumokon (Racing Post forums), stable social media updates-ben, bloodstock agent insights-ban olyan információkért, mint stable confidence indicators, work rider reports, veterinary treatments, vagy ownership pressure factors. Figyelj különösen a going conditions preferences-re (firm/good/soft/heavy), draw bias implications-re, pace scenario analysis-re, és seasonal progression patterns-re. Keress érték fogadásokat minimum 54% valószínűséggel win betting, each-way value spots, exacta/trifecta combinations, place betting overlays, és ante-post tournament winners piacokban. Elemezd a pace mapping scenarios-t, class relief/rise implications-t, jockey booking significance-t, és market confidence vs insider knowledge disconnects. A végén adj professional racing tippeket win/place/show formában supporting form study analysis és market evaluation reasoning-gel."
+            },
+            motor_general: {
+                name: "Motorsport",
+                icon: '🏁',
+                category: 'motor',
+                title: "Motorsport Universal Technical Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy motorsport technical analyst és racing betting specialist 20+ éves tapasztalattal minden kategóriában. Vizsgáld a közelgő racing events-eket minimum 1.90-es oddsokkal (Formula series, touring cars, endurance racing). Merülj el a drivers qualifying vs race pace analysis-eiben, team technical development curves-eiben, mechanical reliability statistics-eiben, és circuit-specific setup advantages-eiben. Kutass motorsport fórumokon (Autosport forums), paddock insider reports-ban, technical regulation interpretation discussions-ben olyan információkért, mint setup philosophy changes, driver confidence levels, team internal dynamics, vagy technical directive implications. Figyelj különösen a weather forecast impact-ra, tire compound strategy implications-re, fuel consumption optimization-ra, és safety car probability scenarios-ra. Keress érték fogadásokat minimum 53% valószínűséggel race winners, podium position betting, fastest lap achievers, mechanical DNF probabilities, és constructor championship points piacokban. Elemezd a track characteristics vs car/driver strengths compatibility-t, overtaking opportunity zones-t, strategic decision-making under pressure-t, és championship implications motivation factors. A végén adj comprehensive motorsport tippeket single és combination race formában supporting technical analysis és strategic racing evaluation-nel."
+            },
+            formula1: {
+                name: "Forma-1",
+                icon: '🏎️',
+                category: 'motor',
+                title: "Formula-1 Advanced Technical Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy F1 technical insider és Grand Prix betting specialist 22+ éves tapasztalattal. Vizsgáld a hétvégi race weekend-et minimum 1.90-es oddsokkal minden session-re. Elemezd a power unit performance curves-eit, aerodynamic efficiency vs drag balance-ét, tire degradation simulation data-t, és DRS/ERS deployment strategy effectiveness-ét. Kutass F1 technical fórumokon (F1Technical, Reddit F1), paddock journalist insider reports-ban, team principal strategic communications-ben olyan információkért, mint regulation interpretation advantages, development token allocation strategies, driver psychological preparation methods, vagy grid penalty implications. Figyelj különösen a track evolution effects-re, weather window exploitation opportunities-ra, fuel load optimization vs grid position trade-offs-ra, és championship mathematics pressure scenarios-ra. Keress érték fogadásokat minimum 54% valószínűséggel race winners, podium position combinations, fastest lap achievements, safety car period probabilities, constructor points maximization, és driver championship swing implications piacokban. Elemezd a strategic team dynamics-ot, pit stop execution consistency-t, tire compound selection philosophy-t, és pressure performance under title fight conditions. A végén adj strategic F1 weekend tippeket qualifying/sprint/race formában supporting advanced technical regulation analysis és team development trajectory assessment-tel."
+            },
+            csgo: {
+                name: "CS:GO",
+                icon: '🔫',
+                category: 'esports',
+                title: "CS:GO Tactical Meta Evolution Elemzési Prompt",
+                prompt: "Légy egy CS:GO professional scene analyst és tactical betting specialist 12+ éves tapasztalattal. Vizsgáld a közelgő tier-1 matches-eket minimum 1.90-es oddsokkal (BLAST, ESL Pro League, Major tournaments). Merülj el a teams tactical evolution-jeiben (anti-strat preparation, map pool depth), individual player form curves-eiben (ADR trends, impact rating consistency), IGL calling adaptation-jeiben, és meta weapon/economy management innovation-jeiben. Kutass CS communities-ben (r/GlobalOffensive, HLTV forums), pro player streaming insights-ban, analyst desk breakdown discussions-ben olyan információkért, mint roster chemistry development, bootcamp preparation intensity, psychological preparation methods, vagy coaching philosophy adaptations. Figyelj különösen a recent patch meta implications-re, LAN vs online performance differentials-re, crowd pressure adaptation-ra, és tournament format psychological demands-re. Keress érték fogadásokat minimum 53% valószínűséggel match winners, map-specific betting, round handicap scenarios, pistol round predictions, individual player performance props, és tournament bracket progression piacokban. Elemezd a tactical system matchups-ot, clutch performance consistency-t, economic round decision-making-et, és anti-strat execution under pressure. A végén adj strategic CS:GO tippeket match/map formában supporting tactical meta analysis és individual skill ceiling assessment-tel."
+            },
+            lol: {
+                name: "League of Legends",
+                icon: '⚔️',
+                category: 'esports',
+                title: "LoL Advanced Meta Strategy Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy League of Legends meta evolution expert és professional scene betting analyst 10+ éves tapasztalattal. Keress közelgő tier-1 matches-eket minimum 1.90-es oddsokkal (World Championship, regional leagues, MSI). Elemezd a teams draft flexibility-jét (champion pool depth, meta adaptation speed), macro game execution precision-jét (objective control timing, map state reading), individual player role mastery evolution-jét, és coaching strategic innovation-jét. Kutass LoL communities-ben (r/leagueoflegends, LoL Esports forums), pro player social media insights-ban, coaching staff methodology interviews-ban olyan információkért, mint scrim performance indicators, mental preparation techniques, patch adaptation strategies, vagy roster synergy development timelines. Figyelj különösen a patch meta power shifts-re, regional playstyle philosophy differences-re, Bo1 vs Bo3/Bo5 format adaptations-ra, és international tournament stage pressure management-re. Keress érték fogadásokat minimum 52% valószínűséggel match winners, game duration predictions, first objective achievements (FB/FT/FD/FB), individual player KDA props, draft phase predictions, és tournament progression probability piacokban. Elemezd a team fighting coordination-t, late game scaling execution-t, early game aggression timing-et, és champion mastery consistency under pressure. A végén adj strategic LoL tippeket match/series formában supporting meta understanding evaluation és team synergy development assessment-tel."
+            },
+            dota2: {
+                name: "Dota 2",
+                icon: '🛡️',
+                category: 'esports',
+                title: "Dota 2 Strategic Depth Meta Elemzési Prompt",
+                prompt: "Viselkedj úgy, mint egy Dota 2 strategic depth expert és professional scene betting specialist 11+ éves tapasztalattal. Vizsgáld a közelgő tier-1 tournaments-eket minimum 1.90-es oddsokkal (The International, ESL Pro Tour, regional DPC leagues). Merülj el a teams strategic innovation-jeiben (drafting creativity, tactical system evolution), individual player role flexibility-jében (position adaptation, hero mastery breadth), captain leadership decision-making-jében, és coaching strategic preparation depth-jében. Kutass Dota communities-ben (r/DotA2, Liquipedia discussions), professional player streaming analysis-ban, team documentary behind-scenes insights-ban olyan információkért, mint practice schedule intensity, psychological preparation methods, patch adaptation strategies, vagy internal team chemistry dynamics. Figyelj különösen a patch meta power level shifts-re, regional meta philosophy differences-re, LAN tournament adaptation speed-re, és high-pressure elimination match mental resilience-re. Keress érték fogadásokat minimum 53% valószínűséggel match winners, game duration over/under, draft phase predictions, first objective achievements, individual player performance metrics, és tournament bracket advancement piacokban. Elemezd a draft priority evolution-t, late game execution consistency-t, high ground defense capabilities-t, és strategic adaptation mid-series. A végén adj strategic Dota 2 tippeket series/tournament formában supporting meta evolution analysis és team strategic depth assessment-tel."
+            },
+            valorant: {
+                name: "Valorant",
+                icon: '🎯',
+                category: 'esports',
+                title: "Valorant Agent Meta Tactical Elemzési Prompt",
+                prompt: "Légy egy Valorant tactical evolution expert és VCT betting specialist 5+ éves tapasztalattal. Keress közelgő VCT tier-1 matches-eket minimum 1.90-es oddsokkal (Champions, Masters, regional VCT leagues). Elemezd a teams agent composition flexibility-jét (meta adaptation, role specialization), individual player mechanical ceiling development-jét (aim consistency, agent mastery), tactical execution precision-jét (site takes, retakes, rotations), és coaching strategic innovation-jét. Kutass Valorant communities-ben (r/VALORANT, VLR.gg forums), pro player streaming tactical discussions-ban, analyst desk breakdown insights-ban olyan információkért, mint agent meta tier shifts, practice routine intensity, psychological preparation methods, vagy roster role optimization strategies. Figyelj különösen a map-specific agent meta evolution-re, regional tactical philosophy differences-re, LAN stage pressure adaptation-ra, és bo3/bo5 series mental endurance management-re. Keress érték fogadásokat minimum 52% valószínűséggel match winners, map-specific predictions, round handicap scenarios, pistol round outcomes, individual player performance props, és tournament advancement probability piacokban. Elemezd a site execution coordination-t, anti-strat preparation effectiveness-t, clutch situation decision-making-et, és agent ability timing optimization. A végén adj strategic Valorant tippeket match/map formában supporting agent meta understanding és team tactical evolution assessment-tel."
+            },
+            virtual_sports: {
+                name: "V-Sport",
+                icon: '🎮',
+                category: 'virtual',
+                title: "Virtuális Sport Algorithm Pattern Elemzési Prompt",
+                prompt: "Gondolkodj úgy, mint egy Virtual Sports algorithm specialist és pattern recognition expert 8+ éves tapasztalattal RNG-based betting systems-ben. Keress mai virtual events-eket minimum 1.90-es oddsokkal (virtual football, horse racing, greyhounds, motor racing, basketball). Bár ezek algorithmically generated events-ek, elemezd a displayed form statistics pattern consistency-jét, historical performance cycle analysis-t, odds movement behavioral patterns-t, és potential software bias indicators-t. Kutass virtual sports communities-ben (VirtualSports forums, Betfair virtual discussions), algorithm discussion groups-ban, software provider behavior analysis-eiben olyan információkért, mint supposed pattern recognition opportunities, community-observed hot/cold cycles, algorithm update timing effects, vagy statistical anomaly exploitation methods. Figyelj különösen a software provider differences-re (Betradar, SBTech, Leap Gaming), event generation frequency patterns-re, favorite bias statistical tendencies-re, és potential variance exploitation windows-ra. Keress érték fogadásokat community wisdom alapján potential algorithm quirks-ben, statistical deviation opportunities-ban, cyclical pattern exploitation-ban, és variance management strategies-ben. Elemezd a virtual form pattern consistency-t, randomization seed behavior speculation-t, community consensus opportunities-t, és risk management approach optimization-t. A végén adj strategic virtual sports tippeket statistical pattern formában supporting algorithmic behavior pattern recognition és community intelligence synthesis-szel. FIGYELEM: Ez spekulatív betting approach, RNG systems-ek inherently unpredictable, only bet entertainment amounts."
+            }
+        };
+
+        const PREFERRED_ORDER = ['football', 'basketball', 'tennis', 'ice_hockey']; // Kiemelt rendezési sorrend
+        const categoryNames = { 'traditional': 'Hagyományos', 'esports': 'E-Sports', 'motor': 'Motorsport', 'virtual': 'Virtuális', 'water': 'Vízi', 'precision': 'Precíziós' };
+
+        // --- DOM ELEMEK ---
+        const elements = {
+            sportsGrid: document.getElementById('sports-grid'),
+            promptContainer: document.getElementById('prompt-container'),
+            promptTitle: document.getElementById('prompt-title'),
+            promptCategory: document.getElementById('prompt-category'),
+            promptText: document.getElementById('prompt-text'),
+            copyButton: document.getElementById('copy-button'),
+            copyFeedback: document.getElementById('copy-feedback'),
+            copyTextSpan: document.getElementById('copy-text'),
+            searchInput: document.getElementById('search-input'),
+            categoryFilters: document.querySelectorAll('.category-filter'),
+            closePromptButton: document.getElementById('close-prompt-button'),
+            noResultsMessage: document.getElementById('no-results'),
+            pageTop: document.getElementById('page-top'),
+            editButton: document.getElementById('edit-button'),
+            modal: document.getElementById('edit-modal'),
+            modalTitle: document.getElementById('modal-title'),
+            editForm: document.getElementById('edit-form'),
+            editKey: document.getElementById('edit-key'),
+            editName: document.getElementById('edit-name'),
+            editIcon: document.getElementById('edit-icon'),
+            editCategory: document.getElementById('edit-category'),
+            editPromptTitle: document.getElementById('edit-prompt-title'),
+            editPrompt: document.getElementById('edit-prompt'),
+            addNewPromptBtn: document.getElementById('add-new-prompt-btn'),
+            cancelEditBtn: document.getElementById('cancel-edit-btn')
+        };
+        
+        // --- ALKALMAZÁS ÁLLAPOTA ---
+        let appData = {};
+        let favorites = [];
+        let selectedSportCard = null;
+        let currentFilter = 'all';
+        let currentlySelectedKey = null;
+
+        // --- ADATKEZELÉS (LOCALSTORAGE) ---
+
+        /** Betölti az adatokat a localStorage-ból, vagy az alapértelmezett adatokat használja. */
+        const loadData = () => {
+            const storedData = JSON.parse(localStorage.getItem('customSportsData')) || {};
+            const storedFavorites = JSON.parse(localStorage.getItem('sportsFavorites')) || [];
+            
+            // Az alapértelmezett adatokat egyesíti a mentett egyéni adatokkal.
+            appData = { ...JSON.parse(JSON.stringify(defaultSportsData)), ...storedData };
+            favorites = storedFavorites;
+        };
+
+        /** Elmenti az egyéni és módosított adatokat a localStorage-ba. */
+        const saveData = () => {
+            const customData = {};
+            Object.keys(appData).forEach(key => {
+                if (!defaultSportsData[key] || JSON.stringify(defaultSportsData[key]) !== JSON.stringify(appData[key])) {
+                    customData[key] = appData[key];
+                }
+            });
+            localStorage.setItem('customSportsData', JSON.stringify(customData));
+        };
+        
+        /** Elmenti a kedvencek listáját a localStorage-ba. */
+        const saveFavorites = () => {
+            localStorage.setItem('sportsFavorites', JSON.stringify(favorites));
+        };
+        
+        // --- UI RENDERELÉS ---
+
+        /** Legenerálja és megjeleníti a sportág kártyákat a szűrők és a rendezés alapján. */
+        const renderSportsCards = () => {
+            elements.sportsGrid.innerHTML = '';
+            let resultsFound = false;
+            
+            // Egyéni rendezési logika
+            const sortedKeys = Object.keys(appData).sort((a, b) => {
+                const aIndex = PREFERRED_ORDER.indexOf(a);
+                const bIndex = PREFERRED_ORDER.indexOf(b);
+
+                if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex; // Mindkettő a kiemelt listában van
+                if (aIndex !== -1) return -1; // Csak 'a' van a listában
+                if (bIndex !== -1) return 1;  // Csak 'b' van a listában
+                return appData[a].name.localeCompare(appData[b].name); // Egyik sincs, ábécérend
+            });
+
+            sortedKeys.forEach(key => {
+                const sport = appData[key];
+                if (shouldShowSport(sport, key)) {
+                    const card = createSportCard(key, sport);
+                    elements.sportsGrid.appendChild(card);
+                    resultsFound = true;
+                }
+            });
+
+            elements.noResultsMessage.classList.toggle('hidden', !resultsFound);
+            elements.sportsGrid.classList.toggle('hidden', !resultsFound);
+        };
+
+        /** Létrehoz egy sportág kártya DOM elemet. */
+        const createSportCard = (key, sport) => {
+            const card = document.createElement('button');
+            card.type = 'button';
+            card.className = 'sport-card p-4 lg:p-6 rounded-2xl cursor-pointer text-center flex flex-col items-center justify-center aspect-square';
+            card.dataset.sport = key;
+
+            const isFav = favorites.includes(key);
+            
+            card.innerHTML = `
+                <span class="favorite-star ${isFav ? 'is-favorite' : ''}" data-key="${key}" aria-label="Kedvencekhez adás">⭐</span>
+                <div class="text-2xl lg:text-3xl mb-2" aria-hidden="true">${sport.icon}</div>
+                <h3 class="text-xs lg:text-sm font-semibold text-slate-200 leading-tight">${sport.name}</h3>
+                <span class="text-xs text-slate-400 mt-1 capitalize leading-tight">${categoryNames[sport.category] || sport.category}</span>
+            `;
+
+            card.querySelector('.favorite-star').addEventListener('click', (e) => {
+                e.stopPropagation(); // Megakadályozza a kártya kattintás eseményének aktiválódását
+                toggleFavorite(key);
+            });
+            card.addEventListener('click', () => selectSport(key, card));
+            return card;
+        };
+
+        // --- FELHASZNÁLÓI INTERAKCIÓK ---
+
+        /** Eldönti, hogy egy sportág megfelel-e a szűrési feltételeknek. */
+        const shouldShowSport = (sport, key) => {
+            const searchTerm = elements.searchInput.value.toLowerCase().trim();
+            const matchesSearch = sport.name.toLowerCase().includes(searchTerm);
+            
+            if (currentFilter === 'all') return matchesSearch;
+            if (currentFilter === 'favorites') return matchesSearch && favorites.includes(key);
+            return matchesSearch && sport.category === currentFilter;
+        };
+
+        /** Kedvenc állapotát váltja egy sportágnak. */
+        const toggleFavorite = (key) => {
+            const index = favorites.indexOf(key);
+            if (index > -1) {
+                favorites.splice(index, 1);
+            } else {
+                favorites.push(key);
+            }
+            saveFavorites();
+            renderSportsCards();
+            
+            // Ha a kedvencek szűrő aktív, és eltávolítjuk az utolsó elemet, a prompt ablak bezáródhat
+            if(currentFilter === 'favorites' && !favorites.includes(currentlySelectedKey)) {
+                if(!elements.promptContainer.classList.contains('prompt-hidden')) {
+                     closePromptContainer();
+                }
+            }
+        };
+
+        /** Kezeli egy sportág kiválasztását. */
+        const selectSport = (key, cardElement) => {
+            currentlySelectedKey = key;
+            const sport = appData[key];
+            
+            if (selectedSportCard) selectedSportCard.classList.remove('selected');
+            cardElement.classList.add('selected');
+            selectedSportCard = cardElement;
+
+            elements.promptTitle.textContent = sport.title;
+            elements.promptCategory.textContent = categoryNames[sport.category] || sport.category;
+            elements.promptText.value = sport.prompt;
+            
+            showPromptContainer();
+        };
+        
+        /** Megjeleníti a prompt konténert és odagörget. */
+        const showPromptContainer = () => {
+            elements.promptContainer.classList.remove('prompt-hidden');
+            elements.promptContainer.classList.add('prompt-visible');
+            setTimeout(() => {
+                elements.promptContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        };
+        
+        /** Bezárja a prompt konténert és a lap tetejére görget. */
+        const closePromptContainer = () => {
+            if (selectedSportCard) {
+                selectedSportCard.classList.remove('selected');
+                selectedSportCard = null;
+            }
+            elements.promptContainer.classList.remove('prompt-visible');
+            elements.promptContainer.classList.add('prompt-hidden');
+            elements.pageTop.scrollIntoView({ behavior: 'smooth' });
+            currentlySelectedKey = null;
+        };
+        
+        /** Vágólapra másolja a prompt szövegét. */
+        const handleCopyPrompt = () => {
+            if(!elements.promptText.value) return;
+            navigator.clipboard.writeText(elements.promptText.value).then(() => {
+                elements.copyFeedback.style.opacity = '1';
+                elements.copyTextSpan.textContent = "Másolva!";
+                setTimeout(() => {
+                    elements.copyFeedback.style.opacity = '0';
+                    elements.copyTextSpan.textContent = "Másolás";
+                }, 2000);
+            }).catch(err => console.error('Hiba a másolás során: ', err));
+        };
+        
+        // --- MODÁL KEZELÉSE (SZERKESZTÉS/HOZZÁADÁS) ---
+        
+        const openModalForEdit = (key) => {
+            const sport = appData[key];
+            elements.modalTitle.textContent = "Prompt Szerkesztése";
+            elements.editForm.reset();
+            elements.editKey.value = key;
+            elements.editName.value = sport.name;
+            elements.editIcon.value = sport.icon;
+            elements.editCategory.value = sport.category;
+            elements.editPromptTitle.value = sport.title;
+            elements.editPrompt.value = sport.prompt;
+            elements.modal.classList.add('visible');
+        };
+        
+        const openModalForAdd = () => {
+            elements.modalTitle.textContent = "Új Prompt Hozzáadása";
+            elements.editForm.reset();
+            elements.editKey.value = `custom_${Date.now()}`; // Egyedi kulcs generálása
+            elements.modal.classList.add('visible');
+        };
+        
+        const closeModal = () => {
+            elements.modal.classList.remove('visible');
+        };
+        
+        const handleFormSubmit = (e) => {
+            e.preventDefault();
+            const key = elements.editKey.value;
+            appData[key] = {
+                name: elements.editName.value,
+                icon: elements.editIcon.value,
+                category: elements.editCategory.value,
+                title: elements.editPromptTitle.value,
+                prompt: elements.editPrompt.value
+            };
+            saveData();
+            renderSportsCards();
+            closeModal();
+            
+            // Frissíti a prompt nézetet, ha a szerkesztett elem volt megnyitva
+            if (currentlySelectedKey === key) {
+                selectSport(key, document.querySelector(`[data-sport="${key}"]`));
+            }
+        };
+
+        // --- ESEMÉNYFIGYELŐK INICIALIZÁLÁSA ---
+        const setupEventListeners = () => {
+            elements.searchInput.addEventListener('input', renderSportsCards);
+            elements.copyButton.addEventListener('click', handleCopyPrompt);
+            elements.closePromptButton.addEventListener('click', closePromptContainer);
+            elements.editButton.addEventListener('click', () => {
+                if(currentlySelectedKey) openModalForEdit(currentlySelectedKey);
+            });
+            elements.addNewPromptBtn.addEventListener('click', openModalForAdd);
+            elements.cancelEditBtn.addEventListener('click', closeModal);
+            elements.modal.addEventListener('click', (e) => {
+                if (e.target === elements.modal) closeModal(); // Bezárás a háttérre kattintva
+            });
+            elements.editForm.addEventListener('submit', handleFormSubmit);
+
+            elements.categoryFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    elements.categoryFilters.forEach(f => {
+                        f.classList.remove('category-badge', 'text-white');
+                        f.classList.add('bg-slate-700', 'hover:bg-slate-600');
+                    });
+                    
+                    filter.classList.add('category-badge', 'text-white');
+                    filter.classList.remove('bg-slate-700', 'hover:bg-slate-600');
+                    
+                    currentFilter = filter.dataset.category;
+                    renderSportsCards();
+                });
+            });
+        };
+
+        // --- ALKALMAZÁS INDÍTÁSA ---
+        loadData();
+        renderSportsCards();
+        setupEventListeners();
+    });
+
+    // --- Téma váltás ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const animatedBg = document.getElementById('animated-bg');
+    
+    function createParticles() {
+      // Részecskék létrehozása a sötét témához
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = Math.random() * 6 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = Math.random() * 20 + 20 + 's';
+        animatedBg.appendChild(particle);
+      }
+    }
+    
+    function setTheme(mode) {
+      if (mode === 'light') {
+        document.body.classList.add('light-theme');
+        themeIcon.textContent = '☀️';
+        animatedBg.style.display = 'none';
+      } else {
+        document.body.classList.remove('light-theme');
+        themeIcon.textContent = '🌙';
+        animatedBg.style.display = 'block';
+        if (animatedBg.children.length === 0) {
+          createParticles();
+        }
+      }
+      localStorage.setItem('theme', mode);
+    }
+    
+    function toggleTheme() {
+      const current = localStorage.getItem('theme') || 'dark';
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    
+    themeToggle.addEventListener('click', toggleTheme);
+    // Init theme
+    setTheme(localStorage.getItem('theme') || 'dark');
+
+    // --- Export/Import JSON ---
+    const exportBtn = document.getElementById('export-btn');
+    const importInput = document.getElementById('import-input');
+    exportBtn.addEventListener('click', () => {
+      const exportData = {
+        customSportsData: JSON.parse(localStorage.getItem('customSportsData') || '{}'),
+        sportsFavorites: JSON.parse(localStorage.getItem('sportsFavorites') || '[]')
+      };
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `sport-prompts-${new Date().toISOString().slice(0,10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+    });
+    
+    importInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try {
+          const imported = JSON.parse(evt.target.result);
+          if (imported.customSportsData) {
+            localStorage.setItem('customSportsData', JSON.stringify(imported.customSportsData));
+          }
+          if (imported.sportsFavorites) {
+            localStorage.setItem('sportsFavorites', JSON.stringify(imported.sportsFavorites));
+          }
+          alert('Sikeres importálás! Az oldal újratöltődik.');
+          location.reload();
+        } catch (err) {
+          alert('Hibás vagy sérült JSON fájl!');
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // --- Restart gomb (alapértelmezett visszaállítás) ---
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      if (confirm('Biztosan visszaállítod az alapértelmezett állapotot? Minden egyéni prompt és kedvenc törlődik!')) {
+        localStorage.removeItem('customSportsData');
+        localStorage.removeItem('sportsFavorites');
+        alert('Visszaállítás sikeres! Az oldal újratöltődik.');
+        location.reload();
+      }
+    });
+
+    // --- Mobil lebegő gomb ---
+    function updateFabButton() {
+      const btn = document.getElementById('add-new-prompt-btn');
+      if (window.innerWidth <= 640) {
+        btn.classList.add('fab');
+      } else {
+        btn.classList.remove('fab');
+      }
+    }
+    window.addEventListener('resize', updateFabButton);
+    updateFabButton();
+    </script>
+</body>
+</html>
