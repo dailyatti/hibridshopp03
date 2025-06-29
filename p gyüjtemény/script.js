@@ -66,6 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const PREFERRED_ORDER = ['football', 'basketball', 'tennis', 'ice_hockey'];
     const categoryNames = { 'traditional': 'Hagyományos', 'esports': 'E-Sports', 'motor': 'Motorsport', 'virtual': 'Virtuális', 'water': 'Vízi', 'precision': 'Precíziós', 'winter': 'Téli', 'logic': 'Logikai' };
+    const specificMatchConfig = {
+        football: {
+            icon: '⚽',
+            placeholder: 'pl. Barcelona vs Real Madrid'
+        },
+        basketball: {
+            icon: '🏀', 
+            placeholder: 'pl. Lakers vs Warriors'
+        },
+        tennis: {
+            icon: '🎾',
+            placeholder: 'pl. Djokovic vs Nadal'
+        }
+    };
     const sportAliases = {
         'football': ['foci', 'futball', 'football', 'soccer'],
         'basketball': ['kosár', 'kosar', 'basket', 'kosz', 'basketball'],
@@ -190,7 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
         specificMatchInput: document.getElementById('specific-match-input'),
         specificDateCheckbox: document.getElementById('specific-date-checkbox'),
         dateInputContainer: document.getElementById('date-input-container'),
-        specificDateInput: document.getElementById('specific-date-input')
+        specificDateInput: document.getElementById('specific-date-input'),
+        sportIcon: document.getElementById('sport-icon')
     };
 
     // --- COPY COUNTER & EFFECTIVENESS FUNCTIONS ---
@@ -400,6 +415,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const supportsSpecificMatch = ['football', 'basketball', 'tennis'].includes(key);
         if (elements.specificMatchOptions) {
             elements.specificMatchOptions.classList.toggle('hidden', !supportsSpecificMatch);
+            
+            // Sportág-specifikus ikon és placeholder beállítása
+            if (supportsSpecificMatch && specificMatchConfig[key]) {
+                const config = specificMatchConfig[key];
+                if (elements.sportIcon) {
+                    elements.sportIcon.textContent = config.icon;
+                }
+                if (elements.specificMatchInput) {
+                    elements.specificMatchInput.placeholder = config.placeholder;
+                }
+            }
         }
         
         // Special styling for virtual sports warning
