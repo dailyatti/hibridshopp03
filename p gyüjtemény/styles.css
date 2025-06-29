@@ -463,4 +463,86 @@ body.light-theme .favorite-star.is-favorite {
 button:focus, input:focus, textarea:focus, select:focus {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
+}
+
+/* Hatékonysági csúszka stílusai */
+.slider-thumb {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 0.5rem;
+    appearance: none;
+    height: 8px;
+    transition: all 0.3s ease;
+}
+
+.slider-thumb::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.slider-thumb::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.5);
+}
+
+.slider-thumb::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.slider-thumb::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.5);
+}
+
+/* Másolási számláló stílusai */
+.copy-counter {
+    z-index: 20;
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulseCounter 2s infinite;
+}
+
+@keyframes pulseCounter {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Világos téma csúszka */
+body.light-theme .slider-thumb {
+    background: linear-gradient(90deg, #e2e8f0, #cbd5e1);
+}
+
+body.light-theme .slider-thumb::-webkit-slider-thumb {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    border: 2px solid #1e293b;
+}
+
+body.light-theme .slider-thumb::-moz-range-thumb {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    border: 2px solid #1e293b;
+}
+
+/* Hatékonysági csúszka konténer */
+body.light-theme .bg-slate-800\/30 {
+    background: rgba(248, 250, 252, 0.8) !important;
+    border-color: #cbd5e1 !important;
+}
+
+body.light-theme .border-slate-600\/50 {
+    border-color: rgba(203, 213, 225, 0.5) !important;
 } 

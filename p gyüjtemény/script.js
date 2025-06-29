@@ -114,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- STATE ---
     let appData = {};
     let favorites = [];
+    let copyCounters = {}; // Másolás számlálók
+    let effectivenessValues = {}; // Hatékonysági értékek
     let selectedSportCard = null;
     let currentFilter = 'all';
     let currentlySelectedKey = null;
@@ -167,7 +169,42 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle: document.getElementById('theme-toggle'),
         themeIcon: document.getElementById('theme-icon'),
         // Lazy Load
-        loadMoreSentinel: document.getElementById('load-more-sentinel')
+        loadMoreSentinel: document.getElementById('load-more-sentinel'),
+        // Hatékonysági csúszka
+        effectivenessSlider: document.getElementById('effectiveness-slider'),
+        effectivenessValue: document.getElementById('effectiveness-value')
+    };
+
+    // --- COPY COUNTER & EFFECTIVENESS FUNCTIONS ---
+    const loadCopyCounters = () => {
+        copyCounters = JSON.parse(localStorage.getItem('promptCopyCounters')) || {};
+    };
+
+    const saveCopyCounters = () => {
+        localStorage.setItem('promptCopyCounters', JSON.stringify(copyCounters));
+    };
+
+    const loadEffectivenessValues = () => {
+        effectivenessValues = JSON.parse(localStorage.getItem('promptEffectiveness')) || {};
+    };
+
+    const saveEffectivenessValues = () => {
+        localStorage.setItem('promptEffectiveness', JSON.stringify(effectivenessValues));
+    };
+
+    const incrementCopyCounter = (key) => {
+        copyCounters[key] = (copyCounters[key] || 0) + 1;
+        saveCopyCounters();
+        renderSportsCards(); // Újrarendezés
+    };
+
+    const getCopyCount = (key) => copyCounters[key] || 0;
+
+    const getEffectiveness = (key) => effectivenessValues[key] || 75;
+
+    const setEffectiveness = (key, value) => {
+        effectivenessValues[key] = value;
+        saveEffectivenessValues();
     };
 
     // --- DATA HANDLING (LOCALSTORAGE) ---
@@ -176,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const storedFavorites = JSON.parse(localStorage.getItem('sportsFavorites')) || [];
         appData = { ...JSON.parse(JSON.stringify(defaultSportsData)), ...storedData };
         favorites = storedFavorites;
+        loadCopyCounters();
+        loadEffectivenessValues();
     };
 
     const saveData = () => {
@@ -204,12 +243,21 @@ document.addEventListener('DOMContentLoaded', () => {
             return matchesSearch && sport.category === currentFilter;
         });
 
+        // MÁSOLÁS SZÁMLÁLÓ ALAPJÁN RENDEZÉS
         const sortedKeys = filteredKeys.sort((a, b) => {
+            // Először másolási szám szerint (csökkenő)
+            const aCopyCount = getCopyCount(a);
+            const bCopyCount = getCopyCount(b);
+            if (aCopyCount !== bCopyCount) return bCopyCount - aCopyCount;
+            
+            // Másodsorban preferred order
             const aIndex = PREFERRED_ORDER.indexOf(a);
             const bIndex = PREFERRED_ORDER.indexOf(b);
             if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
             if (aIndex !== -1) return -1;
             if (bIndex !== -1) return 1;
+            
+            // Végül név szerint
             return appData[a].name.localeCompare(appData[b].name);
         });
         
@@ -241,8 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const isFav = favorites.includes(key);
+        const copyCount = getCopyCount(key);
+        
         card.innerHTML = `
             <span class="favorite-star ${isFav ? 'is-favorite' : ''}" data-key="${key}" aria-label="Kedvencekhez adás">⭐</span>
+            ${copyCount > 0 ? `<span class="copy-counter absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-bold">${copyCount}</span>` : ''}
             <div class="text-2xl lg:text-3xl mb-2" aria-hidden="true">${sport.icon}</div>
             <h3 class="text-xs lg:text-sm font-semibold text-slate-200 leading-tight">${sport.name}</h3>
             <span class="text-xs text-slate-400 mt-1 capitalize leading-tight">${categoryNames[sport.category] || sport.category}</span>
@@ -301,6 +352,13 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.promptText.value = sport.prompt;
         elements.promptText.readOnly = true;
         elements.editButton.textContent = "Szerkesztés";
+        
+        // Hatékonysági csúszka beállítása
+        const effectiveness = getEffectiveness(key);
+        if (elements.effectivenessSlider) {
+            elements.effectivenessSlider.value = effectiveness;
+            elements.effectivenessValue.textContent = effectiveness + '%';
+        }
         
         // Special styling for virtual sports warning
         if (sport.special === "warning") {
@@ -371,8 +429,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const handleCopyPrompt = () => {
-        if (!elements.promptText.value) return;
+        if (!elements.promptText.value || !currentlySelectedKey) return;
+        
         navigator.clipboard.writeText(elements.promptText.value).then(() => {
+            // Másolás számláló növelése
+            incrementCopyCounter(currentlySelectedKey);
+            
+            // Feedback megjelenítése
             elements.copyFeedback.style.opacity = '1';
             elements.copyTextSpan.textContent = "Másolva!";
             setTimeout(() => {
@@ -417,7 +480,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleExport = () => {
         const exportData = {
             customSportsData: JSON.parse(localStorage.getItem('customSportsData') || '{}'),
-            sportsFavorites: JSON.parse(localStorage.getItem('sportsFavorites') || '[]')
+            sportsFavorites: JSON.parse(localStorage.getItem('sportsFavorites') || '[]'),
+            promptCopyCounters: JSON.parse(localStorage.getItem('promptCopyCounters') || '{}'),
+            promptEffectiveness: JSON.parse(localStorage.getItem('promptEffectiveness') || '{}')
         };
         const blob = new Blob([JSON.stringify(exportData, null, 2)], {type: 'application/json'});
         const url = URL.createObjectURL(blob);
@@ -438,6 +503,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const imported = JSON.parse(evt.target.result);
                 if (imported.customSportsData) localStorage.setItem('customSportsData', JSON.stringify(imported.customSportsData));
                 if (imported.sportsFavorites) localStorage.setItem('sportsFavorites', JSON.stringify(imported.sportsFavorites));
+                if (imported.promptCopyCounters) localStorage.setItem('promptCopyCounters', JSON.stringify(imported.promptCopyCounters));
+                if (imported.promptEffectiveness) localStorage.setItem('promptEffectiveness', JSON.stringify(imported.promptEffectiveness));
                 showAlert('Sikeres importálás! Az oldal újratöltődik.');
             } catch (err) {
                 showConfirmation('Hiba történt az importálás során. Hibás vagy sérült a JSON fájl.', () => {});
@@ -447,9 +514,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const handleReset = () => {
-        showConfirmation('Biztosan visszaállítod az alapértelmezett állapotot? Minden egyéni prompt és kedvenc törlődik!', () => {
+        showConfirmation('Biztosan visszaállítod az alapértelmezett állapotot? Minden egyéni prompt, kedvenc, másolási számláló és hatékonysági beállítás törlődik!', () => {
             localStorage.removeItem('customSportsData');
             localStorage.removeItem('sportsFavorites');
+            localStorage.removeItem('promptCopyCounters');
+            localStorage.removeItem('promptEffectiveness');
             showAlert('Visszaállítás sikeres! Az oldal újratöltődik.');
         });
     };
@@ -503,6 +572,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         elements.copyButton.addEventListener('click', handleCopyPrompt);
         elements.closePromptButton.addEventListener('click', closePromptContainer);
+        
+        // Hatékonysági csúszka eseménykezelő
+        if (elements.effectivenessSlider) {
+            elements.effectivenessSlider.addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                elements.effectivenessValue.textContent = value + '%';
+                if (currentlySelectedKey) {
+                    setEffectiveness(currentlySelectedKey, value);
+                }
+            });
+        }
         
         elements.editButton.addEventListener('click', () => {
             if (currentlySelectedKey) {

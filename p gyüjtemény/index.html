@@ -83,6 +83,22 @@
             <div class="relative">
                 <textarea id="prompt-text" readonly class="w-full h-80 lg:h-96 bg-slate-900/50 border border-slate-600 rounded-2xl p-6 text-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none text-sm lg:text-base leading-relaxed transition-all duration-300"></textarea>
             </div>
+            
+            <!-- Hatékonysági csúszka -->
+            <div class="mt-4 p-4 bg-slate-800/30 rounded-xl border border-slate-600/50">
+                <div class="flex items-center justify-between mb-2">
+                    <label for="effectiveness-slider" class="text-sm font-medium text-slate-300">Prompt Hatékonyság</label>
+                    <span id="effectiveness-value" class="text-sm font-bold text-blue-400">75%</span>
+                </div>
+                <input type="range" id="effectiveness-slider" min="1" max="100" value="75" 
+                       class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider-thumb">
+                <div class="flex justify-between text-xs text-slate-400 mt-1">
+                    <span>Alacsony (1%)</span>
+                    <span>Közepes (50%)</span>
+                    <span>Magas (100%)</span>
+                </div>
+            </div>
+            
             <div id="copy-feedback" class="text-center text-green-400 mt-4 h-6 transition-all duration-300 opacity-0 font-semibold">✓ Prompt sikeresen a vágólapra másolva!</div>
             
             <!-- Eszköz gombok prompt ablak alján -->
