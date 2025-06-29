@@ -1,0 +1,466 @@
+html { 
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+body { 
+    font-family: 'Inter', sans-serif; 
+    min-height: 100vh; 
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Sötét téma alapbeállítások */
+body { 
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #334155 60%, #475569 100%);
+    background-attachment: fixed;
+}
+
+/* Világos téma */
+body.light-theme { 
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 30%, #e2e8f0 60%, #cbd5e1 100%);
+    background-attachment: fixed;
+    color: #1e293b; 
+}
+
+body.light-theme .sport-card { 
+    background: linear-gradient(145deg, #ffffff, #f8fafc); 
+    border: 1px solid #e2e8f0; 
+    color: #1e293b; 
+    box-shadow: 0 4px 12px rgba(30,41,59,0.08);
+}
+body.light-theme .sport-card:hover { 
+    box-shadow: 0 12px 32px rgba(59,130,246,0.15); 
+    border-color: #3b82f6;
+    transform: translateY(-6px) scale(1.02);
+}
+body.light-theme .sport-card.selected {
+    background: linear-gradient(145deg, #dbeafe, #bfdbfe);
+    border-color: #3b82f6;
+    box-shadow: 0 16px 40px rgba(59,130,246,0.25);
+}
+
+body.light-theme .prompt-container, 
+body.light-theme .modal-content, 
+body.light-theme .alert-modal-content { 
+    background: linear-gradient(145deg, #ffffff, #f8fafc); 
+    color: #1e293b; 
+    box-shadow: 0 8px 40px rgba(30,41,59,0.12);
+    border: 1px solid #e2e8f0;
+}
+
+body.light-theme .search-box { 
+    background: linear-gradient(145deg, #f8fafc, #ffffff); 
+    border: 1px solid #e2e8f0; 
+    box-shadow: inset 0 2px 4px rgba(30,41,59,0.06);
+}
+body.light-theme .search-box:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), inset 0 2px 4px rgba(30,41,59,0.06);
+}
+
+body.light-theme .modal-input { 
+    background: linear-gradient(145deg, #f8fafc, #ffffff); 
+    border: 1px solid #e2e8f0; 
+    color: #1e293b; 
+}
+body.light-theme .modal-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Színek override */
+body.light-theme .text-slate-200 { color: #1e293b !important; }
+body.light-theme .text-slate-300 { color: #64748b !important; }
+body.light-theme .text-slate-400 { color: #475569 !important; }
+body.light-theme .bg-slate-700 { background: linear-gradient(145deg, #e2e8f0, #cbd5e1); }
+body.light-theme .bg-slate-600 { background: linear-gradient(145deg, #cbd5e1, #94a3b8); }
+
+body.light-theme .tools-section { 
+    background: linear-gradient(145deg, #ffffff, #f8fafc); 
+    border: 1px solid #e2e8f0; 
+    box-shadow: 0 4px 20px rgba(30,41,59,0.08);
+}
+body.light-theme .tools-section h2 { color: #3b82f6 !important; font-weight: 700; }
+body.light-theme .tools-section h3 { color: #1e293b !important; font-weight: 600; }
+body.light-theme .tools-section p { color: #475569 !important; }
+
+body.light-theme #search-input { color: #1e293b !important; }
+body.light-theme #search-input::placeholder { color: #64748b !important; }
+body.light-theme #no-results p { color: #475569 !important; }
+
+body.light-theme #prompt-text { 
+    background: linear-gradient(145deg, #dbeafe, #e0e7ff) !important; 
+    border: 1px solid #3b82f6 !important; 
+    color: #1e293b !important; 
+}
+body.light-theme #prompt-text.warning { 
+    background: linear-gradient(145deg, #fef2f2, #fee2e2) !important; 
+    border: 2px solid #ef4444 !important; 
+    color: #ef4444 !important; 
+}
+
+/* Gombok */
+body.light-theme .category-filter:not(.category-badge) { 
+    color: #334155; 
+    background: linear-gradient(145deg, #e2e8f0, #cbd5e1); 
+}
+body.light-theme .category-filter:not(.category-badge):hover { 
+    background: linear-gradient(145deg, #cbd5e1, #94a3b8); 
+    transform: translateY(-2px);
+}
+
+body.light-theme .category-badge, 
+body.light-theme .btn-add-new, 
+body.light-theme .tool-btn, 
+body.light-theme #edit-button, 
+body.light-theme #copy-button, 
+body.light-theme #export-btn, 
+body.light-theme #reset-btn, 
+body.light-theme label[for="import-input"],
+body.light-theme label[for="import-input-inline"] { 
+    background: linear-gradient(135deg, #3b82f6, #6366f1) !important; 
+    color: #fff !important; 
+    border: none !important; 
+    box-shadow: 0 4px 12px rgba(59,130,246,0.15); 
+    font-weight: 600; 
+}
+body.light-theme .category-badge:hover, 
+body.light-theme .btn-add-new:hover, 
+body.light-theme .tool-btn:hover, 
+body.light-theme #edit-button:hover, 
+body.light-theme #copy-button:hover, 
+body.light-theme #export-btn:hover, 
+body.light-theme #reset-btn:hover, 
+body.light-theme label[for="import-input"]:hover,
+body.light-theme label[for="import-input-inline"]:hover { 
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important; 
+    box-shadow: 0 8px 24px rgba(59,130,246,0.25); 
+    transform: translateY(-3px) scale(1.05); 
+}
+
+body.light-theme .favorite-star { 
+    color: #cbd5e1; 
+    transition: all 0.3s ease; 
+}
+body.light-theme .favorite-star:hover { 
+    color: #facc15; 
+    transform: scale(1.3) rotate(18deg); 
+}
+body.light-theme .favorite-star.is-favorite { 
+    color: #facc15; 
+    filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.5));
+}
+
+/* Sötét téma specifikus stílusok */
+.sport-card { 
+    background: linear-gradient(145deg, #1e293b, #334155); 
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+    backdrop-filter: blur(20px); 
+    border: 1px solid rgba(148, 163, 184, 0.15); 
+    position: relative;
+    overflow: hidden;
+}
+
+.sport-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.sport-card:hover::before {
+    left: 100%;
+}
+
+.sport-card:hover { 
+    transform: translateY(-8px) scale(1.03); 
+    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3), 
+                0 15px 35px rgba(139, 92, 246, 0.2); 
+    border-color: rgba(59, 130, 246, 0.4); 
+}
+
+.sport-card.selected { 
+    transform: translateY(-12px) scale(1.05); 
+    box-shadow: 0 30px 60px rgba(59, 130, 246, 0.5), 
+                0 20px 40px rgba(139, 92, 246, 0.3); 
+    border-color: #3b82f6; 
+    background: linear-gradient(145deg, #1e40af, #3b82f6); 
+}
+
+.prompt-container { 
+    background: rgba(30, 41, 59, 0.95); 
+    backdrop-filter: blur(25px); 
+    border: 1px solid rgba(148, 163, 184, 0.2); 
+    position: relative;
+    overflow: hidden;
+}
+
+.prompt-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
+}
+
+.category-badge, .btn-add-new { 
+    background: linear-gradient(135deg, #6366f1, #8b5cf6); 
+}
+
+.search-box { 
+    background: rgba(30, 41, 59, 0.8); 
+    backdrop-filter: blur(15px); 
+    border: 1px solid rgba(148, 163, 184, 0.2); 
+    transition: all 0.3s ease;
+}
+.search-box:focus-within { 
+    border-color: #3b82f6; 
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15); 
+    transform: translateY(-2px);
+}
+
+.header-glow { 
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4, #f59e0b); 
+    background-size: 300% 300%; 
+    animation: gradient 4s ease infinite; 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+}
+@keyframes gradient { 
+    0% { background-position: 0% 50%; } 
+    25% { background-position: 100% 50%; } 
+    50% { background-position: 100% 100%; } 
+    75% { background-position: 0% 100%; } 
+    100% { background-position: 0% 50%; } 
+}
+
+.floating-elements { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    pointer-events: none; 
+    z-index: -1; 
+    overflow: hidden; 
+}
+
+.floating-circle { 
+    position: absolute; 
+    border-radius: 50%; 
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); 
+    animation: float 15s ease-in-out infinite; 
+}
+@keyframes float { 
+    0% { transform: translateY(0px) translateX(0px) rotate(0deg); } 
+    25% { transform: translateY(-30px) translateX(20px) rotate(90deg); } 
+    50% { transform: translateY(15px) translateX(-15px) rotate(180deg); } 
+    75% { transform: translateY(-20px) translateX(25px) rotate(270deg); } 
+    100% { transform: translateY(0px) translateX(0px) rotate(360deg); } 
+}
+
+.prompt-transition { 
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.prompt-hidden { 
+    opacity: 0; 
+    transform: translateY(30px) scale(0.95); 
+    pointer-events: none; 
+}
+.prompt-visible { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+}
+
+.favorite-star { 
+    position: absolute; 
+    top: 12px; 
+    right: 12px; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    filter: grayscale(100%); 
+    opacity: 0.6; 
+    z-index: 10;
+}
+.favorite-star:hover { 
+    transform: scale(1.3) rotate(18deg); 
+}
+.favorite-star.is-favorite { 
+    filter: grayscale(0%); 
+    opacity: 1; 
+    color: #facc15; 
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+}
+
+.modal-overlay, .alert-modal-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(15, 23, 42, 0.8); 
+    backdrop-filter: blur(12px); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 50; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: all 0.3s ease; 
+}
+.modal-overlay.visible, .alert-modal-overlay.visible { 
+    opacity: 1; 
+    pointer-events: auto; 
+}
+
+.modal-content, .alert-modal-content { 
+    background: linear-gradient(145deg, #1e293b, #334155); 
+    border-radius: 1.5rem; 
+    padding: 2rem; 
+    width: 90%; 
+    max-width: 600px; 
+    transform: scale(0.9) translateY(20px); 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.alert-modal-content { max-width: 450px; }
+.modal-overlay.visible .modal-content, 
+.alert-modal-overlay.visible .alert-modal-content { 
+    transform: scale(1) translateY(0); 
+}
+
+.modal-input { 
+    background: rgba(15, 23, 42, 0.8); 
+    border: 1px solid #475569; 
+    color: white; 
+    transition: all 0.3s ease;
+}
+.modal-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+}
+
+.tools-section { 
+    background: rgba(30, 41, 59, 0.95); 
+    backdrop-filter: blur(25px); 
+    border: 1px solid rgba(148, 163, 184, 0.2); 
+    margin-top: 2rem; /* Csökkentett margin */
+    position: relative;
+    overflow: hidden;
+}
+
+.tools-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+/* Button hover effects */
+.tool-btn, .category-filter, .btn-add-new {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-btn:hover, .category-filter:hover, .btn-add-new:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Mobile optimalizációk */
+@media (max-width: 640px) {
+    #sports-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+    }
+    .sport-card { 
+        min-height: 120px; 
+        font-size: 1rem; 
+        padding: 0.75rem !important; 
+    }
+    #add-new-prompt-btn.fab { 
+        position: fixed; 
+        bottom: 24px; 
+        right: 24px; 
+        z-index: 40; 
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3); 
+        padding: 1.2rem; 
+        font-size: 1.2rem; 
+        border-radius: 9999px; 
+        background: linear-gradient(135deg, #6366f1, #8b5cf6); 
+        color: #fff; 
+        transition: all 0.3s ease; 
+    }
+    #add-new-prompt-btn.fab:active { 
+        transform: scale(0.95); 
+    }
+    .tools-section {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Animációk */
+@keyframes fadeInUpCard {
+    from { 
+        opacity: 0; 
+        transform: translateY(40px) scale(0.9) rotateX(10deg); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1) rotateX(0deg); 
+    }
+}
+.sport-card.animated { 
+    animation: fadeInUpCard 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tools-section {
+    animation: slideInUp 0.8s ease-out;
+}
+
+/* Scroll területek */
+.prompt-container {
+    scroll-margin-top: 2rem;
+}
+
+/* Gyorsabb átmenetek */
+* {
+    transition-duration: 0.3s;
+}
+
+/* Javított focus states */
+button:focus, input:focus, textarea:focus, select:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+} 
