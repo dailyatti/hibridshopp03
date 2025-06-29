@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CONSTANTS & CONFIG ---
     const defaultSportsData = {
-        football: { name: "Foci", icon: '⚽', category: 'traditional', title: "Professzionális Foci Elemzési Prompt", prompt: "Keresd meg a mai focimérkőzéseket minden ligából (Premier League, La Liga, Serie A, Bundesliga, Ligue 1, MLS, Copa Libertadores, Championship, magyar NB1, stb.), és nézd át a sportfogadó irodákat is az oddsok alapján. Nézd meg más tippadók véleményét is — csak olyan tippeket adj, amelyek ma lesznek, és az odds meghaladja az 1.90-et. A válaszodat gondold át alaposan, és indokold meg részletesen. Adj single és kombi tippeket is. Gondolkodj úgy, mint egy sportfogadó szakember, aki 20 éve ebből él, és focira specializálódott. Vizsgáld meg a csapatok formájától kezdve az időjáráson át a hiányzó játékosokig minden tényezőt. Elemezd a csapatok xG/xGA (Expected Goals) és xPTS (Expected Points) mutatóit, npxG (non-penalty xG) értékeit, Big Chances Created/Conceded statisztikáit, possession %-et, PPDA-t (passes per defensive action), progressive pass & carry számokat, deep completions-t, set piece efficiency-t, pressing intensity zones-okat, defensive line height-et és field tilt arányt. Figyelj a nemzetközi kupamérkőzésekre, barátságos meccsekre és kvalifikációs mérkőzésekre is. Gondold végig, melyik lehet a legjobb értékfogadás, amelynek legalább 50% feletti a valószínűsége. Ne feledd: te egy profi szakember vagy, akinek mindenre kiterjed a figyelme, még azokra is, amiket a bukmékerek esetleg nem vesznek észre. A válaszaidat jól indokold meg, és a végén írd le rendes tipp formába is. Nagyon fontos, hogy több csoportot és kommentet is vizsgálj át, különösen azokat, ahol a fogadási értékről beszélnek, és ahol több ember is értékfogadást lát — például hiányzó kulcsjátékos vagy más olyan tényező, amely elkerüli a bukik figyelmét. A lényeg: a tippeket tipp formába írd le a végén." },
-        basketball: { name: "Kosárlabda", icon: '🏀', category: 'traditional', title: "Stratégiai Kosárlabda Elemzési Prompt", prompt: "Gondolkodj úgy, mint egy profi kosárlabda elemző, aki 15+ éve követi a nemzetközi és hazai bajnokságokat. Keress mai kosárlabda mérkőzéseket minimum 1.90-es oddsokkal minden elérhető ligából (NBA, EuroLeague, Nemzeti bajnokságok). Vizsgáld meg részletesen a csapatok offensive/defensive ratingjeit, pace factort, rebounding percentageket, és az utóbbi 10 meccs formáját. Kiemelt figyelmet fordíts a key players sérüléseire, back-to-back meccsek hatására, és a home/away form különbségeire. Kutass kosárlabda fórumokon, Reddit NBA/EuroLeague subredditekben, Twitter kosárlabda szakértők posztjaiban, és nézd át az insider információkat - például load management döntések, rookie vs veteran matchupok, vagy utolsó pillanatban kidőlt játékosok. Keress érték fogadásokat, ahol a valós valószínűség legalább 55%-ra becsülhető. Koncentrálj player props-ra (points, rebounds, assists), team totals-ra, quarter/half betting-re, és spread piacokra. Különösen figyelj a revenge game faktorokra, playoff positioning motivációra, és clutch time statisztikákra. A végén adj konkrét single és kombi tippeket tiszta indoklással." },
-        tennis: { name: "Tenisz", icon: '🎾', category: 'traditional', title: "Professzionális Tenisz Elemzési Prompt", prompt: "Viselkedj úgy, mint egy 20 éves tapasztalattal rendelkező tenisz szakértő és értékfogadás specialista. Keress mai tenisz mérkőzéseket minimum 1.90-es oddsokkal minden major turnirról (ATP, WTA, Challenger, ITF). Elemezd részletesen a játékosok felszín preferenciáját (salak/fű/kemény), head-to-head mérlegét, recent form-ot, és az utóbbi 5 meccs serve/return statisztikáit. Kutass tenisz fórumokon (TennisWorld, MTF), social media posztokban, TennisTV kommentekben olyan rejtett információkért, mint kisebb sérülések, coaching changes, personal issues, vagy travel fatigue. Különös figyelmet fordíts a weather conditions hatására, jet lag-re, tournament progression-re, és playing style matchupokra (baseliner vs serve&volley). Keress érték fogadásokat, ahol a bookmaker odds nem tükrözi pontosan a valós esélyeket - minimum 52% becsült valószínűséggel. Koncentrálj match winner, set betting, total games, first set winner, és player performance piacokra. Elemezd a break point conversion rates-et, tiebreak records-ot, és pressure situation performance-t. A végén adj strukturált single és accumulator tippeket részletes reasoning-gel." },
+        football: { name: "Foci", icon: '⚽', category: 'traditional', title: "Professzionális Foci Elemzési Prompt", prompt: "Keresd meg a mai focimérkőzéseket minden ligából (Premier League, La Liga, Serie A, Bundesliga, Ligue 1, MLS, Copa Libertadores, Championship, magyar NB1, stb.), és nézd át a sportfogadó irodákat is az oddsok alapján. Nézd meg más tippadók véleményét is — csak olyan tippeket adj, amelyek ma lesznek, és az odds meghaladja az 1.90-et. A válaszodat gondold át alaposan, és indokold meg részletesen. Adj single és kombi tippeket is. Gondolkodj úgy, mint egy sportfogadó szakember, aki 20 éve ebből él, és focira specializálódott. Vizsgáld meg a csapatok formájától kezdve az időjáráson át a hiányzó játékosokig minden tényezőt. Elemezd a csapatok xG/xGA (Expected Goals) és xPTS (Expected Points) mutatóit, npxG (non-penalty xG) értékeit, Big Chances Created/Conceded statisztikáit, possession %-et, PPDA-t (passes per defensive action), progressive pass & carry számokat, deep completions-t, set piece efficiency-t, pressing intensity zones-okat, defensive line height-et és field tilt arányt. Figyelj a nemzetközi kupamérkőzésekre, barátságos meccsekre és kvalifikációs mérkőzésekre is. Gondold végig, melyik lehet a legjobb értékfogadás, amelynek legalább 50% feletti a valószínűsége. Ne feledd: te egy profi szakember vagy, akinek mindenre kiterjed a figyelme, még azokra is, amiket a bukmékerek esetleg nem vesznek észre. A válaszaidat jól indokold meg, és a végén írd le rendes tipp formába is. Nagyon fontos, hogy több csoportot és kommentet is vizsgálj át, különösen azokat, ahol a fogadási értékről beszélnek, és ahol több ember is értékfogadást lát — például hiányzó kulcsjátékos vagy más olyan tényező, amely elkerüli a bukik figyelmét. A lényeg: a tippeket tipp formába írd le a végén.", specificMatchPrompt: "🎯 KONKRÉT MÉRKŐZÉS ELEMZÉS: {MATCH} {DATE}\n\nMélyedj el részletesen a megadott mérkőzés elemzésében profi szinten. Vizsgáld meg mindkét csapat:\n\n📊 FORM & STATISZTIKÁK (utolsó 10 meccs):\n- xG/xGA (Expected Goals) és tényleges gól arány\n- Possession %, PPDA, progressive passes\n- Set piece hatékonyság (szabadrúgás, szöglet, büntető)\n- Big chances created/conceded\n- Védekező/támadó third teljesítmény\n\n🔍 HEAD-TO-HEAD ANALÍZIS:\n- Utolsó 5 mérkőzés mérleg és gólok\n- Hazai/vendég formák egymás ellen\n- Taktikai matchup előzmények\n- Pszichológiai előnyök\n\n⚠️ CSAPAT HELYZET:\n- Sérültek/eltiltottak listája (TransferMarkt/Sofascore)\n- Edzői taktika változások\n- Motivációs tényezők (bajnoki cím, kiesés, kupameccs)\n- Keretrotáció tervek (Európa-liga hatás)\n\n🌡️ KÖRNYEZETI FAKTOROK:\n- Időjárás előrejelzés (szél, eső, hőmérséklet)\n- Pálya állapot (fű magasság, kemény/lágy talaj)\n- Közönség hatás (hazai/vendég szurkolók száma)\n\n💰 BUKMÉKER & ÉRTÉK ELEMZÉS:\n- Odds összehasonlítás 8+ bukis (Bet365, Unibet, Betfair, Pinnacle)\n- Closing line movement és éles pénz nyomon követés\n- Insider tippek és panel vélemények\n- Public % vs sharp money eloszlás\n\n🎯 KONKRÉT TIPP JAVASLATOK:\n1. 1X2 & dupla esély (indoklással)\n2. Over/Under gólok (2.5, 3.5) + BTTS\n3. Handicap fogadások (AH -1, -1.5)\n4. Player propok (gólok, lövések, passzok)\n5. Első/utolsó gól ideje, félszakasz eredmények\n\nVárható értékfogadások minimum 53% valószínűséggel, statisztikákkal és insider info alapján alátámasztva!" },
+        basketball: { name: "Kosárlabda", icon: '🏀', category: 'traditional', title: "Stratégiai Kosárlabda Elemzési Prompt", prompt: "Gondolkodj úgy, mint egy profi kosárlabda elemző, aki 15+ éve követi a nemzetközi és hazai bajnokságokat. Keress mai kosárlabda mérkőzéseket minimum 1.90-es oddsokkal minden elérhető ligából (NBA, EuroLeague, Nemzeti bajnokságok). Vizsgáld meg részletesen a csapatok offensive/defensive ratingjeit, pace factort, rebounding percentageket, és az utóbbi 10 meccs formáját. Kiemelt figyelmet fordíts a key players sérüléseire, back-to-back meccsek hatására, és a home/away form különbségeire. Kutass kosárlabda fórumokon, Reddit NBA/EuroLeague subredditekben, Twitter kosárlabda szakértők posztjaiban, és nézd át az insider információkat - például load management döntések, rookie vs veteran matchupok, vagy utolsó pillanatban kidőlt játékosok. Keress érték fogadásokat, ahol a valós valószínűség legalább 55%-ra becsülhető. Koncentrálj player props-ra (points, rebounds, assists), team totals-ra, quarter/half betting-re, és spread piacokra. Különösen figyelj a revenge game faktorokra, playoff positioning motivációra, és clutch time statisztikákra. A végén adj konkrét single és kombi tippeket tiszta indoklással.", specificMatchPrompt: "🏀 KONKRÉT KOSÁR MÉRKŐZÉS: {MATCH} {DATE}\n\nProfi szintű elemzés a megadott mérkőzésre:\n\n📊 CSAPAT ANALYTICS (utolsó 15 meccs):\n- Offensive/Defensive Rating + Net Rating\n- Pace Factor és possessions/game\n- Effective FG%, True Shooting%, AST/TO ratio\n- Rebounds (OFF/DEF %), Second Chance pontok\n- Paint vs 3PT pontok megoszlás\n\n👥 PLAYER MATCHUPS & PROPS:\n- Starting 5 vs Bench production\n- Usage Rate és PER főbb játékosoknál\n- Injury report és probable/questionable státusz\n- Rest advantage (back-to-back, travel)\n- Head-to-head player battle history\n\n🎯 TAKTIKAI ELEMZÉS:\n- Coaching schemes (motion vs iso offense)\n- Defensive style (switch, drop, hedge)\n- Small ball vs traditional lineup effectiveness\n- Clutch time performance (5 perc < 5 pont)\n- Home court vs road split differenciák\n\n🔍 ADVANCED INSIGHTS:\n- Line movement és sharp money tracking\n- Public betting % vs professional szöjött\n- Weather (outdoor courts), altitude effects\n- Ref crew assignment és calling tendencies\n- Motivation factors (playoff race, revenge games)\n\n💰 BETTING OPPORTUNITIES:\n- Spread analysis (csapat vs public perception)\n- Total points O/U (pace-adjusted)\n- Player props: PRA, 3PT made, R+A, Double-Double\n- Quarter/Half betting (slow/fast starts)\n- Team props: FG%, TO count, made 3s\n\nVárható value bets 54%+ valószínűséggel, insider info és advanced metrics alapján!" },
+        tennis: { name: "Tenisz", icon: '🎾', category: 'traditional', title: "Professzionális Tenisz Elemzési Prompt", prompt: "Viselkedj úgy, mint egy 20 éves tapasztalattal rendelkező tenisz szakértő és értékfogadás specialista. Keress mai tenisz mérkőzéseket minimum 1.90-es oddsokkal minden major turnirról (ATP, WTA, Challenger, ITF). Elemezd részletesen a játékosok felszín preferenciáját (salak/fű/kemény), head-to-head mérlegét, recent form-ot, és az utóbbi 5 meccs serve/return statisztikáit. Kutass tenisz fórumokon (TennisWorld, MTF), social media posztokban, TennisTV kommentekben olyan rejtett információkért, mint kisebb sérülések, coaching changes, personal issues, vagy travel fatigue. Különös figyelmet fordíts a weather conditions hatására, jet lag-re, tournament progression-re, és playing style matchupokra (baseliner vs serve&volley). Keress érték fogadásokat, ahol a bookmaker odds nem tükrözi pontosan a valós esélyeket - minimum 52% becsült valószínűséggel. Koncentrálj match winner, set betting, total games, first set winner, és player performance piacokra. Elemezd a break point conversion rates-et, tiebreak records-ot, és pressure situation performance-t. A végén adj strukturált single és accumulator tippeket részletes reasoning-gel.", specificMatchPrompt: "🎾 KONKRÉT TENISZ MÉRKŐZÉS: {MATCH} {DATE}\n\nTenisz szakértői elemzés a megadott párharchoz:\n\n🏟️ FELSZÍN & KÖRNYEZET:\n- Pálya típus (kemény/salak/fű) preferenciák\n- Court speed index (slow/medium/fast)\n- Időjárás hatás (hőmérséklet, szél, páratartalom)\n- Altitude effect és labda-viselkedés\n- Indoor vs outdoor adaptáció\n\n📈 PLAYER ANALYTICS (utolsó 20 meccs):\n- Felszín-specific win/loss record\n- Serve statistics (1st %, ACE/DF ratio)\n- Return game efficiency (break opportunities)\n- Rally length preference (baseline vs net approach)\n- Mental toughness indicators (comeback wins)\n\n🆚 HEAD-TO-HEAD BREAKDOWN:\n- All-time H2H record és trend\n- Felszín-specific H2H stats\n- Set/game win percentages\n- Most recent encounter analysis\n- Psychological edge assessment\n\n💪 FORM & FITNESS:\n- Tournament progression és match time\n- Recent injury concerns/recovery\n- Travel schedule és jet lag\n- Coaching team changes\n- Personal life stability factors\n\n🎯 TACTICAL MATCHUP:\n- Playing style compatibility (aggressor vs counterpuncher)\n- Serve patterns vs return positioning\n- Forehand vs backhand dominance\n- Net game vs baseline grind\n- Pressure point execution (break points, tiebreaks)\n\n📊 BETTING VALUE ANALYSIS:\n- Match winner odds comparison\n- Set betting opportunities (straight sets, total sets)\n- Game handicap lines\n- Total games O/U analysis\n- Player props: ACEs, double faults, winners\n\nValue tips 52%+ valószínűséggel, playing style, form és felszín-compatibility alapján!" },
         american_football: { name: "Amerikai Futball", icon: '🏈', category: 'traditional', title: "NFL Stratégiai Elemzési Prompt", prompt: "Légy egy NFL insider analitikus 20+ éves tapasztalattal, aki minden statisztikai és motivációs faktort ismer. Vizsgáld a hétvégi NFL slate-et minimum 1.90-es oddsokkal. Mélyedj el a csapatok advanced metrics-eiben: DVOA (offense/defense/special teams), EPA per play, red zone efficiency, third down conversion rates, turnover differential, és time of possession trends. Kutass NFL Twitter/X beat reportereknél, team subredditekben, injury reports-ban, weather forecast-okban. Keress insider információkat: motivational edges (revenge games, contract years, coaching hot seats), line movement analysis, sharp vs public money, és vegas insider tips. Figyelj különösen a playoff implications-re, divisional rivalry dynamics-ra, prime time performance history-ra, és rest advantages-re (bye weeks, short weeks). Keress érték fogadásokat 55%+ becsült valószínűséggel spread, totals, player props (passing/rushing/receiving yards, TDs), team props, és live betting scenarios-ban. Elemezd a coaching tendencies-t, game script probabilities-t, és in-game adjustment capabilities-t. A végén adj stratégiai tippeket single és parlay formában konkrét reasoning-gel." },
         baseball: { name: "Baseball", icon: '⚾', category: 'traditional', title: "MLB Sabermetrics Elemzési Prompt", prompt: "Gondolkodj úgy, mint egy sabermetrics guru és MLB értékfogadás specialista 25+ éves tapasztalattal. Keress mai MLB games-eket minimum 1.90-es oddsokkal. Merülj el a starting pitchers advanced stats-aiban: ERA vs FIP vs xFIP, WHIP, K/9, BB/9, HR/9, és ballpark-adjusted numbers. Elemezd a csapatok offensive metrics-eit: wOBA, OPS+, ISO, BABIP, és recent hot/cold streaks. Vizsgáld a bullpen depth-et, usage patterns-t, és closer availability-t. Kutass baseball fórumokon (BaseballThinkFactory, Fangraphs comments), beat writers Twitter feeds-ben, fantasy baseball communities-ben olyan információkért, mint minor injuries, family issues, contract negotiations, vagy clubhouse chemistry. Figyelj különösen a weather impact-ra (wind direction/speed, temperature, humidity), ballpark factors-ra, umpire strike zone tendencies-re, és platoon advantages-ra. Keress érték fogadásokat minimum 53% becsült valószínűséggel moneyline, run line, totals, first 5 innings, player props (hits, HRs, RBIs, strikeouts) piacokban. Elemezd a recent offensive trends-eket, pitcher fatigue-et, és late-inning management. A végén adj data-driven tippeket single és parlay formában supporting sabermetric analysis-szel." },
         ice_hockey: { name: "Jégkorong", icon: '🏒', category: 'traditional', title: "NHL Mélységi Elemzési Prompt", prompt: "Viselkedj úgy, mint egy NHL analytics expert és professional bettor 18+ éves tapasztalattal. Keress mai jégkorong meccseket minimum 1.90-es oddsokkal. Elemezd a csapatok advanced hockey metrics-eit: Corsi For %, Fenwick %, PDO, expected goals for/against, high-danger scoring chances, és faceoff win percentages. Vizsgáld a goaltender performance-ot: save percentage, goals against average, quality start percentage, és back-to-back fatigue. Kutass hockey insider Twitter accounts-ban, team beat reporters cikkeiben, r/hockey discussions-ben, és HockeyDB-n olyan információkért, mint goalie injuries, line combination changes, healthy scratches, vagy locker room issues. Figyelj a travel schedule impact-ra, back-to-back games-re, power play/penalty kill efficiency-re, és late-season motivation factors-ra (playoff race, draft positioning). Keress érték fogadásokat minimum 54% valószínűséggel puck line, totals, period betting, player props (goals, assists, shots, saves), és team props piacokban. Elemezd a coaching systems-t (offensive/defensive schemes), special teams success, és clutch performance metrics. A végén adj strategic hockey tippeket single és accumulator formában advanced analytics supporting-gal." },
@@ -182,7 +182,15 @@ document.addEventListener('DOMContentLoaded', () => {
         loadMoreSentinel: document.getElementById('load-more-sentinel'),
         // Hatékonysági csúszka
         effectivenessSlider: document.getElementById('effectiveness-slider'),
-        effectivenessValue: document.getElementById('effectiveness-value')
+        effectivenessValue: document.getElementById('effectiveness-value'),
+        // Konkrét mérkőzés opciók
+        specificMatchOptions: document.getElementById('specific-match-options'),
+        specificMatchCheckbox: document.getElementById('specific-match-checkbox'),
+        matchInputContainer: document.getElementById('match-input-container'),
+        specificMatchInput: document.getElementById('specific-match-input'),
+        specificDateCheckbox: document.getElementById('specific-date-checkbox'),
+        dateInputContainer: document.getElementById('date-input-container'),
+        specificDateInput: document.getElementById('specific-date-input')
     };
 
     // --- COPY COUNTER & EFFECTIVENESS FUNCTIONS ---
@@ -359,15 +367,39 @@ document.addEventListener('DOMContentLoaded', () => {
         
         elements.promptTitle.textContent = sport.title;
         elements.promptCategory.textContent = categoryNames[sport.category] || sport.category;
-        elements.promptText.value = sport.prompt;
         elements.promptText.readOnly = true;
         elements.editButton.textContent = "Szerkesztés";
+        
+        // Reset checkbox-ok és mezők
+        if (elements.specificMatchCheckbox) {
+            elements.specificMatchCheckbox.checked = false;
+            elements.matchInputContainer.classList.add('hidden');
+        }
+        if (elements.specificDateCheckbox) {
+            elements.specificDateCheckbox.checked = false;
+            elements.dateInputContainer.classList.add('hidden');
+        }
+        if (elements.specificMatchInput) {
+            elements.specificMatchInput.value = '';
+        }
+        if (elements.specificDateInput) {
+            elements.specificDateInput.value = '';
+        }
+        
+        // Alapértelmezett prompt beállítása
+        elements.promptText.value = sport.prompt;
         
         // Hatékonysági csúszka beállítása
         const effectiveness = getEffectiveness(key);
         if (elements.effectivenessSlider) {
             elements.effectivenessSlider.value = effectiveness;
             elements.effectivenessValue.textContent = effectiveness + '%';
+        }
+        
+        // Konkrét mérkőzés opciók megjelenítése/elrejtése
+        const supportsSpecificMatch = ['football', 'basketball', 'tennis'].includes(key);
+        if (elements.specificMatchOptions) {
+            elements.specificMatchOptions.classList.toggle('hidden', !supportsSpecificMatch);
         }
         
         // Special styling for virtual sports warning
@@ -540,6 +572,47 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', mode);
     };
 
+    // --- SPECIFIC MATCH PROMPT GENERATION ---
+    const updatePromptText = () => {
+        if (!currentlySelectedKey || !['football', 'basketball', 'tennis'].includes(currentlySelectedKey)) {
+            return;
+        }
+        
+        const sport = appData[currentlySelectedKey];
+        const useSpecificMatch = elements.specificMatchCheckbox && elements.specificMatchCheckbox.checked;
+        const useSpecificDate = elements.specificDateCheckbox && elements.specificDateCheckbox.checked;
+        
+        if (useSpecificMatch && sport.specificMatchPrompt) {
+            let promptText = sport.specificMatchPrompt;
+            
+            // Mérkőzés helyettesítés
+            if (elements.specificMatchInput && elements.specificMatchInput.value.trim()) {
+                promptText = promptText.replace('{MATCH}', elements.specificMatchInput.value.trim());
+            } else {
+                promptText = promptText.replace('{MATCH}', '[ÍRDID BE A MÉRKŐZÉST]');
+            }
+            
+            // Dátum helyettesítés
+            if (useSpecificDate && elements.specificDateInput && elements.specificDateInput.value) {
+                const dateValue = elements.specificDateInput.value;
+                const formatDate = new Date(dateValue).toLocaleDateString('hu-HU', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'long'
+                });
+                promptText = promptText.replace('{DATE}', `(${formatDate})`);
+            } else {
+                promptText = promptText.replace('{DATE}', '');
+            }
+            
+            elements.promptText.value = promptText;
+        } else {
+            // Alapértelmezett prompt használata
+            elements.promptText.value = sport.prompt;
+        }
+    };
+
     // --- LAZY LOAD FOR MOBILE ---
     const setupMobileLazyLoad = () => {
         if (mobileObserver) mobileObserver.disconnect();
@@ -592,6 +665,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     setEffectiveness(currentlySelectedKey, value);
                 }
             });
+        }
+        
+        // Konkrét mérkőzés checkbox eseménykezelők
+        if (elements.specificMatchCheckbox) {
+            elements.specificMatchCheckbox.addEventListener('change', (e) => {
+                elements.matchInputContainer.classList.toggle('hidden', !e.target.checked);
+                updatePromptText();
+            });
+        }
+        
+        if (elements.specificDateCheckbox) {
+            elements.specificDateCheckbox.addEventListener('change', (e) => {
+                elements.dateInputContainer.classList.toggle('hidden', !e.target.checked);
+                updatePromptText();
+            });
+        }
+        
+        if (elements.specificMatchInput) {
+            elements.specificMatchInput.addEventListener('input', updatePromptText);
+        }
+        
+        if (elements.specificDateInput) {
+            elements.specificDateInput.addEventListener('change', updatePromptText);
         }
         
         elements.editButton.addEventListener('click', () => {

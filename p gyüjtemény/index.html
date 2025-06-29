@@ -99,6 +99,35 @@
                 </div>
             </div>
             
+            <!-- Konkrét mérkőzés és dátum opciók -->
+            <div id="specific-match-options" class="mt-4 p-4 bg-slate-800/30 rounded-xl border border-slate-600/50 hidden">
+                <h4 class="text-sm font-medium text-slate-300 mb-3">🎯 Konkrét Elemzési Opciók</h4>
+                
+                <!-- Konkrét mérkőzés opció -->
+                <div class="mb-3">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="specific-match-checkbox" class="form-checkbox h-4 w-4 text-blue-600 bg-slate-700 border-slate-600 rounded focus:ring-blue-500">
+                        <span class="text-sm text-slate-300">⚽ Konkrét mérkőzés megadása</span>
+                    </label>
+                    <div id="match-input-container" class="mt-2 hidden">
+                        <input type="text" id="specific-match-input" placeholder="pl. Barcelona vs Real Madrid" 
+                               class="w-full p-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+                
+                <!-- Konkrét dátum opció -->
+                <div class="mb-3">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="specific-date-checkbox" class="form-checkbox h-4 w-4 text-blue-600 bg-slate-700 border-slate-600 rounded focus:ring-blue-500">
+                        <span class="text-sm text-slate-300">📅 Konkrét dátum megadása</span>
+                    </label>
+                    <div id="date-input-container" class="mt-2 hidden">
+                        <input type="date" id="specific-date-input" 
+                               class="w-full p-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+            </div>
+            
             <div id="copy-feedback" class="text-center text-green-400 mt-4 h-6 transition-all duration-300 opacity-0 font-semibold">✓ Prompt sikeresen a vágólapra másolva!</div>
             
             <!-- Eszköz gombok prompt ablak alján -->
