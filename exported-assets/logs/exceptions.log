@@ -1,0 +1,736 @@
+2025-07-07 00:10:51:1051 [31merror[39m: [31muncaughtException: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:15:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:11:13:1113 [31merror[39m: [31muncaughtException: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:15:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:01:131 [31merror[39m: [31muncaughtException: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:15:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:03:133 [31merror[39m: [31muncaughtException: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/auth'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:15:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:11:1311 [31merror[39m: [31muncaughtException: Cannot find module './routes/users'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/users'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:16:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:13:1313 [31merror[39m: [31muncaughtException: Cannot find module './routes/users'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/users'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:16:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:19:1319 [31merror[39m: [31muncaughtException: Cannot find module './routes/betting'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/betting'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:17:23)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:21:1321 [31merror[39m: [31muncaughtException: Cannot find module './routes/betting'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/betting'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:17:23)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:32:1332 [31merror[39m: [31muncaughtException: Cannot find module './routes/math'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/math'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:18:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:34:1334 [31merror[39m: [31muncaughtException: Cannot find module './routes/math'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/math'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:18:20)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:56:1356 [31merror[39m: [31muncaughtException: Cannot find module './routes/apiKeys'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/apiKeys'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:19:22)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:13:57:1357 [31merror[39m: [31muncaughtException: Cannot find module './routes/apiKeys'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/apiKeys'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:19:22)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:14:14:1414 [31merror[39m: [31muncaughtException: Cannot find module './routes/analytics'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/analytics'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:20:25)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:14:15:1415 [31merror[39m: [31muncaughtException: Cannot find module './routes/analytics'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './routes/analytics'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:20:25)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:14:30:1430 [31merror[39m: [31muncaughtException: Cannot find module './config/swagger'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './config/swagger'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:24:21)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:14:31:1431 [31merror[39m: [31muncaughtException: Cannot find module './config/swagger'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31mError: Cannot find module './config/swagger'[39m
+[31mRequire stack:[39m
+[31m- C:\Users\djatt\Downloads\exported-assets\src\server.js[39m
+[31m    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)[39m
+[31m    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)[39m
+[31m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1215:37)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.require (node:internal/modules/cjs/loader:1491:12)[39m
+[31m    at require (node:internal/modules/helpers:135:16)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:24:21)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+2025-07-07 00:14:53:1453 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-07 00:14:54:1454 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-07 00:15:07:157 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-07 10:15:58:1558 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-07 16:02:38:238 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 12:18:47:1847 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 12:19:06:196 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 12:19:25:1925 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 12:20:20:2020 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:32:04:324 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:32:18:3218 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:32:31:3231 [31merror[39m: [31muncaughtException: Please install sqlite3 package manually[39m
+[31mError: Please install sqlite3 package manually[39m
+[31m    at ConnectionManager._loadDialectModule (C:\Users\djatt\Downloads\exported-assets\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:55:15)[39m
+[31m    at new ConnectionManager (C:\Users\djatt\Downloads\exported-assets\node_modules\sequelize\lib\dialects\sqlite\connection-manager.js:18:21)[39m
+[31m    at new SqliteDialect (C:\Users\djatt\Downloads\exported-assets\node_modules\sequelize\lib\dialects\sqlite\index.js:13:30)[39m
+[31m    at new Sequelize (C:\Users\djatt\Downloads\exported-assets\node_modules\sequelize\lib\sequelize.js:194:20)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\config\database.js:4:19)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+2025-07-08 23:33:16:3316 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:33:55:3355 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:33:55:3355 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:152:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:34:07:347 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:34:07:347 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:34:17:3417 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:34:36:3436 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:34:36:3436 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:34:36:3436 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:35:26:3526 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:35:42:3542 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:35:42:3542 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:35:42:3542 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:35:53:3553 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:36:10:3610 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:36:10:3610 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:36:10:3610 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:36:11:3611 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:36:11:3611 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:36:11:3611 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-08 23:37:07:377 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-09 09:44:23:4423 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-10 12:45:18:4518 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-12 10:04:34:434 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-12 10:04:56:456 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-12 10:23:05:235 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-12 10:23:51:2351 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
+2025-07-12 10:26:29:2629 [31merror[39m: [31muncaughtException: app.use() requires a middleware function[39m
+[31mTypeError: app.use() requires a middleware function[39m
+[31m    at app.use (C:\Users\djatt\Downloads\exported-assets\node_modules\express\lib\application.js:217:11)[39m
+[31m    at Object.<anonymous> (C:\Users\djatt\Downloads\exported-assets\src\server.js:153:5)[39m
+[31m    at Module._compile (node:internal/modules/cjs/loader:1734:14)[39m
+[31m    at Object..js (node:internal/modules/cjs/loader:1899:10)[39m
+[31m    at Module.load (node:internal/modules/cjs/loader:1469:32)[39m
+[31m    at Module._load (node:internal/modules/cjs/loader:1286:12)[39m
+[31m    at TracingChannel.traceSync (node:diagnostics_channel:322:14)[39m
+[31m    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)[39m
+[31m    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:152:5)[39m
+[31m    at node:internal/main/run_main_module:33:47[39m
