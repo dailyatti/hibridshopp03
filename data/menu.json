@@ -1,0 +1,32 @@
+[
+  {
+    "id": "home",
+    "label": "Főoldal",
+    "visible": true,
+    "order": 1
+  },
+  {
+    "id": "breeds",
+    "label": "Fajták",
+    "visible": true,
+    "order": 2
+  },
+  {
+    "id": "available",
+    "label": "Eladó Kutyák",
+    "visible": true,
+    "order": 3
+  },
+  {
+    "id": "gallery",
+    "label": "Galéria",
+    "visible": true,
+    "order": 4
+  },
+  {
+    "id": "contact",
+    "label": "Kapcsolat",
+    "visible": true,
+    "order": 5
+  }
+]
