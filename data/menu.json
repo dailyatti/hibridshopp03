@@ -1,25 +1,25 @@
 [
   {
     "id": "home",
-    "label": "Főoldal",
+    "label": "FÅoldal",
     "visible": true,
     "order": 1
   },
   {
     "id": "breeds",
-    "label": "Fajták",
+    "label": "FajtÃ¡k",
     "visible": true,
     "order": 2
   },
   {
     "id": "available",
-    "label": "Eladó Kutyák",
+    "label": "EladÃ³ KutyÃ¡k",
     "visible": true,
     "order": 3
   },
   {
     "id": "gallery",
-    "label": "Galéria",
+    "label": "GalÃ©ria",
     "visible": true,
     "order": 4
   },
