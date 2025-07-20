@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "url": "/src/assets/371091897_839629824179864_1843142989333076425_n.jpg",
+    "title": "Carlos",
+    "description": "Maltipoo kölyök",
+    "category": "maltipoo"
+  },
+  {
+    "id": 2,
+    "url": "/src/assets/viber_kep_2025-06-12_17-57-52-976.jpg",
+    "title": "Joker",
+    "description": "Maltipoo kölyök",
+    "category": "maltipoo"
+  },
+  {
+    "id": 3,
+    "url": "/src/assets/viber_kep_2025-06-12_17-57-51-752.jpg",
+    "title": "Charlie",
+    "description": "Maltipoo kölyök",
+    "category": "maltipoo"
+  },
+  {
+    "id": 4,
+    "url": "/src/assets/viber_kep_2025-06-12_17-57-52-245.jpg",
+    "title": "Fanto",
+    "description": "Cavapoo kölyök",
+    "category": "cavapoo"
+  },
+  {
+    "id": 5,
+    "url": "/src/assets/viber_kep_2025-06-12_17-54-15-104.jpg",
+    "title": "Max és Buddy",
+    "description": "Labrador és Maltipoo",
+    "category": "special"
+  },
+  {
+    "id": 6,
+    "url": "/src/assets/viber_kep_2025-06-12_17-54-04-740.jpg",
+    "title": "Coco",
+    "description": "Maltipoo kölyök",
+    "category": "maltipoo"
+  }
+]

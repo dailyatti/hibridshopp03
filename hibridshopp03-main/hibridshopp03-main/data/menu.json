@@ -1,0 +1,32 @@
+[
+  {
+    "id": "home",
+    "label": "FÅoldal",
+    "visible": true,
+    "order": 1
+  },
+  {
+    "id": "breeds",
+    "label": "FajtÃ¡k",
+    "visible": true,
+    "order": 2
+  },
+  {
+    "id": "available",
+    "label": "EladÃ³ KutyÃ¡k",
+    "visible": true,
+    "order": 3
+  },
+  {
+    "id": "gallery",
+    "label": "GalÃ©ria",
+    "visible": true,
+    "order": 4
+  },
+  {
+    "id": "contact",
+    "label": "Kapcsolat",
+    "visible": true,
+    "order": 5
+  }
+]

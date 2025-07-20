@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Carlos",
+    "breed": "Maltipoo",
+    "age": "9 hetes",
+    "price": "350.000 Ft",
+    "image": "/src/assets/371091897_839629824179864_1843142989333076425_n.jpg",
+    "description": "Második generációs Maltipoo, gyönyörű vörös-barna göndör szőrzet, nagyon játékos és szeretetteljes természet. Carlos egy igazi családi kedvenc, aki imádja a gyerekeket és könnyen alkalmazkodik új környezethez.",
+    "gender": "Fiú",
+    "vaccinated": true,
+    "microchipped": true,
+    "weight": "2.5 kg",
+    "parents": "Máltai selyemkutya anya × Toy uszkár apa",
+    "temperament": "Játékos, szeretetteljes, intelligens",
+    "specialFeatures": [
+      "Hipoallergén szőrzet",
+      "Könnyen tanítható",
+      "Gyerekbarát",
+      "Lakásban tartható"
+    ],
+    "category": "maltipoo"
+  },
+  {
+    "id": 2,
+    "name": "Joker",
+    "breed": "Maltipoo",
+    "age": "8 hetes",
+    "price": "320.000 Ft",
+    "image": "/src/assets/viber_kep_2025-06-12_17-57-52-976.jpg",
+    "description": "Második generációs Maltipoo, fehér-barna hosszú szőrzet, szelíd és nyugodt természet. Joker tökéletes választás azoknak, akik egy békés, kiegyensúlyozott kutyust keresnek.",
+    "gender": "Fiú",
+    "vaccinated": true,
+    "microchipped": true,
+    "weight": "2.2 kg",
+    "parents": "Máltai selyemkutya anya × Toy uszkár apa",
+    "temperament": "Szelíd, nyugodt, ragaszkodó",
+    "specialFeatures": [
+      "Hosszú, selymes szőrzet",
+      "Nyugodt természet",
+      "Ideális társkutya",
+      "Könnyen kezelhető"
+    ],
+    "category": "maltipoo"
+  },
+  {
+    "id": 3,
+    "name": "Charlie",
+    "breed": "Maltipoo",
+    "age": "9 hetes",
+    "price": "340.000 Ft",
+    "image": "/src/assets/viber_kep_2025-06-12_17-57-51-752.jpg",
+    "description": "Krém-barna göndör szőrzet, nagyon intelligens és tanítható. Charlie egy kivételesen okos kölyök, aki gyorsan megtanulja a parancsokat.",
+    "gender": "Kan",
+    "vaccinated": true,
+    "microchipped": true,
+    "weight": "2.8 kg",
+    "parents": "Máltai selyemkutya anya × Miniature uszkár apa",
+    "temperament": "Intelligens, aktív, tanulékony",
+    "specialFeatures": [
+      "Rendkívül okos",
+      "Gyorsan tanul",
+      "Aktív természet",
+      "Kiváló családi kutya"
+    ],
+    "category": "maltipoo"
+  },
+  {
+    "id": 4,
+    "name": "Fanto",
+    "breed": "Cavapoo",
+    "age": "15 hetes",
+    "price": "200.000 Ft",
+    "image": "/src/assets/viber_kep_2025-06-12_17-57-52-245.jpg",
+    "description": "Barna göndör szőrzet, imádja a szabadtéri tevékenységeket. Fanto egy energikus, kalandvágyó kölyök, aki tökéletes aktív családoknak.",
+    "gender": "Fiú",
+    "vaccinated": true,
+    "microchipped": true,
+    "weight": "3.1 kg",
+    "parents": "Cavalier King Charles spániel anya × Toy uszkár apa",
+    "temperament": "Energikus, barátságos, kalandvágyó",
+    "specialFeatures": [
+      "Szabadtér szerető",
+      "Nagyon barátságos",
+      "Jó egészség",
+      "Aktív életmódhoz ideális"
+    ],
+    "category": "cavapoo"
+  },
+  {
+    "id": 5,
+    "name": "Max és Buddy",
+    "breed": "Labrador és Maltipoo",
+    "age": "Felnőtt és 6 hetes",
+    "price": "280.000 Ft",
+    "image": "/src/assets/viber_kep_2025-06-12_17-54-15-104.jpg",
+    "description": "Arany Labrador és imádnivaló Maltipoo kölyök különleges páros. Max, a tapasztalt Labrador segít Buddy, a kis Maltipoo szocializációjában.",
+    "gender": "Vegyes",
+    "vaccinated": true,
+    "microchipped": true,
+    "weight": "25 kg + 1.8 kg",
+    "parents": "Labrador (Max) + Maltipoo kölyök (Buddy)",
+    "temperament": "Barátságos, védelmező, játékos",
+    "specialFeatures": [
+      "Különleges páros",
+      "Tapasztalt kutya + kölyök",
+      "Kiváló szocializáció",
+      "Családi környezethez"
+    ],
+    "category": "special"
+  },
+  {
+    "id": 6,
+    "name": "Coco",
+    "breed": "Maltipoo",
+    "age": "7 hetes",
+    "price": "360.000 Ft",
+    "image": "/src/assets/viber_kep_2025-06-12_17-54-04-740.jpg",
+    "description": "Vörös-barna göndör szőrzet, nagyon aktív és társaságkedvelő természet. Coco egy igazi kis energiabomba, aki mindig jó hangulatot teremt.",
+    "gender": "Szuka",
+    "vaccinated": true,
+    "microchipped": true,
+    "weight": "2.0 kg",
+    "parents": "Máltai selyemkutya anya × Toy uszkár apa",
+    "temperament": "Aktív, társaságkedvelő, vidám",
+    "specialFeatures": [
+      "Nagyon aktív",
+      "Társaságkedvelő",
+      "Vidám természet",
+      "Kiváló játszótárs"
+    ],
+    "category": "maltipoo"
+  }
+]
